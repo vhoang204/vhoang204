@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of vhoang | Personal Space</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <div class="loader-inner">
+            <span>v</span><span>h</span><span>o</span><span>a</span><span>n</span><span>g</span>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">vhoang</a>
+
+            <!-- Desktop nav links — also used as mobile menu via id="mobMenu" -->
+            <ul class="nav-links" id="mobMenu">
+                <li><a href="#about">Hoàng</a></li>
+                <li><a href="#lifestyle">Hoàng làm</a></li>
+                <li><a href="#contact">Hoàng Đây</a></li>
+                <li><a href="#gallery">Hoàng Nhớ</a></li>
+                <li><a href="#music">Hoàng Nghe</a></li>
+                <li><a href="#timeline">Hoàng Thích</a></li>
+                
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Theme toggle — id="themeBtn", icon id="themeIcon" (required by JS) -->
+                <button id="themeBtn" aria-label="Toggle theme">
+                    <i id="themeIcon" class="fas fa-moon"></i>
+                </button>
+                <!-- Hamburger menu — id="ham" (required by JS) -->
+                <button id="ham" class="hamburger" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero section reveal">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <span class="small-intro"> Personal Space</span>
+                <!-- <h1 class="main-title">Cuộc sống<br><em>của Hoàng</em></h1> -->
+                 <!-- <h1 class="main-title">Hoàng</h1> -->
+                <!-- Typing effect element — id="typed" (required by JS) -->
+                <p class="typed-line"><span id="typed"></span><span class="cursor">|</span></p>
+                <p class="subtitle"> Điều cậu muốn về tớ ? </p>
+                <div class="hero-buttons">
+                    <a href="#lifestyle" class="btn btn-primary">Tìm hiểu</a>
+                    <a href="#contact" class="btn btn-outline">Tìm tớ</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Anh1.png" alt="vhoang Portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ME ===== -->
+    <section id="about" class="about section reveal">
+        <div class="container about-layout">
+            <div class="about-text">
+                <span class="small-intro">Về mình</span>
+                <h2 class="section-title">Mình là ai?</h2>
+
+                <p>Mình là sinh viên Công nghệ Thông tin tại Huế,
+                yêu thích công nghệ, những không gian yên tĩnh và những khoảnh khắc đời thường.
+                Ngoài việc học, mình còn làm pha chế, thích nghe nhạc và lưu giữ cảm xúc qua những bức ảnh.</p>
+            </div>
+            <div class="info-grid">
+          <div class="info-cell">
+            <span class="info-key">Ngày sinh</span>
+            <span class="info-val">14 / 07 / 2004</span>
+          </div>
+          <div class="info-cell">
+            <span class="info-key">Quê quán</span>
+            <span class="info-val">Quảng Bình, Quảng Trị</span>
+          </div>
+          <div class="info-cell">
+            <span class="info-key">Email</span>
+            <span class="info-val" style="font-size:12.5px">nguyenviethoangqb2004@gmail.com</span>
+          </div>
+          <div class="info-cell">
+            <span class="info-key">Ngoại ngữ</span>
+            <span class="info-val">Tiếng Anh B1</span>
+          </div>
+          <div class="info-cell">
+            <span class="info-key">Điện thoại</span>
+            <span class="info-val">+84 944681407</span>
+          </div>
+          <div class="info-cell">
+            <span class="info-key">Sở thích</span>
+            <span class="info-val">Xem phim, Đọc sách, Du lịch</span>
+          </div>
+        </div>
+            <div class="about-card">
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i><span>Huế, Việt Nam</span></li>
+                    <li><i class="fa-solid fa-graduation-cap"></i><span>Sinh viên IT</span></li>
+                    <li><i class="fa-solid fa-mug-hot"></i><span>Barista</span></li>
+                    <li><i class="fa-solid fa-headphones"></i><span>Music Lover</span></li>
+                    <li><i class="fa-solid fa-camera"></i><span>Photography</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIFESTYLE ===== -->
+    <section id="lifestyle" class="lifestyle section reveal">
+        <div class="container">
+            <span class="small-intro text-center">Cuộc sống</span>
+            <h2 class="section-title text-center">My Lifestyle</h2>
+            <div class="lifestyle-grid">
+                <div class="life-card">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <h3>Coffee & Bartending</h3>
+                    <p>Thích pha chế và tận hưởng không gian cafe yên tĩnh.</p>
+                </div>
+                <div class="life-card">
+                    <i class="fa-solid fa-music"></i>
+                    <h3>Music</h3>
+                    <p>Âm nhạc là một phần trong cuộc sống thường ngày.</p>
+                </div>
+                <div class="life-card">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h3>Photography</h3>
+                    <p>Lưu giữ những khoảnh khắc nhỏ qua từng bức ảnh.</p>
+                </div>
+                <div class="life-card">
+                    <i class="fa-solid fa-moon"></i>
+                    <h3>Night & Calm</h3>
+                    <p>Thích sự yên tĩnh, những buổi tối nhẹ nhàng và không gian tối giản.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BARTENDER / BARISTA ===== -->
+    <section id="bartender" class="bartender section reveal">
+        <div class="container bartender-layout">
+            <div class="bartender-text">
+                <span class="small-intro">Công việc</span>
+                <h2 class="section-title">Barista</h2>
+                <p>Việc pha chế giúp mình học cách giao tiếp, quan sát và kết nối với mọi người. Mình thích cảm giác tạo ra những ly nước đẹp mắt và mang lại trải nghiệm thoải mái cho mọi người.</p>
+                <div class="tags">
+                    <span>#CoffeeArtist</span>
+                    <span>#WorkingMoments</span>
+                    <span>#CoffeeAesthetic</span>
+                </div>
+            </div>
+            <div class="bartender-img">
+                <img src="ART.png" alt="Barista Life">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MUSIC ===== -->
+    <section id="music" class="music section reveal">
+        <div class="container">
+            <span class="small-intro text-center">Playlist</span>
+            <h2 class="section-title text-center">Nhạc mình thích</h2>
+            <div class="music-grid">
+
+                <a href="https://open.spotify.com/track/7uulTURh3qtUEUnMNtgcA6?si=609a3de946ed46b3" target="_blank" rel="noopener" class="music-card">
+                    <div class="album-cover" style="background-image: url('vungantoan.png');"></div>
+                    <h4>Vùng An Toàn</h4>
+                    <p>Bray ft. V#</p>
+                </a>
+
+                <a href="https://open.spotify.com/track/0pavLg3wbL6PVXAgXoWv4S?si=371f370760b94c67" target="_blank" rel="noopener" class="music-card">
+                    <div class="album-cover" style="background-image: url('motnuasuthat.jpg');"></div>
+                    <h4>Một Nửa Sự Thật</h4>
+                    <p>24K.RIGHT ft. NGẮN, HIPZ</p>
+                </a>
+
+                <a href="https://open.spotify.com/track/1pJb4HdgfTEv6yCccao1Qp?si=bcd017c78e664fee" target="_blank" rel="noopener" class="music-card">
+                    <div class="album-cover" style="background-image: url('neulucdo.jpg');"></div>
+                    <h4>nếu lúc đó</h4>
+                    <p>tlinh ft. 2pillz</p>
+                </a>
+
+                <a href="https://open.spotify.com/track/27Z9T0mSWHYWSj9SNOGvyt?si=515872c6eb994c84" target="_blank" rel="noopener" class="music-card">
+                    <div class="album-cover" style="background-image: url('thangdien.jpg');"></div>
+                    <h4>Thằng Điên</h4>
+                    <p>JustaTee ft. Phương Ly</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="gallery section reveal">
+        <div class="container">
+            <span class="small-intro text-center">Ảnh</span>
+            <h2 class="section-title text-center">Kỷ Niệm</h2>
+            <!-- Tên file ảnh phải khớp đúng với tên file thật: dấu __ không phải dấu cách -->
+            <div class="masonry-grid">
+                <div class="masonry-item"><img src="Picapica-photostrip__14_.jpg" alt="Kỷ niệm 1" loading="lazy"></div>
+                <div class="masonry-item"><img src="Picapica-photostrip__19_.jpg" alt="Kỷ niệm 2" loading="lazy"></div>
+                <div class="masonry-item"><img src="Picapica-photostrip__4_.jpg"  alt="Kỷ niệm 3" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section id="timeline" class="timeline section reveal">
+        <div class="container">
+            <span class="small-intro text-center">Hành trình</span>
+            <h2 class="section-title text-center">Little Moments</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">Bắt đầu làm pha chế — học cách kết nối với mọi người qua từng ly cafe.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">Tập trung phát triển bản thân — học thêm, trải nghiệm thêm, sống chậm hơn.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">Xây dựng không gian cá nhân trên internet — một góc nhỏ rất riêng của mình.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact section reveal">
+        <div class="container">
+            <div class="contact-layout">
+
+                <!-- Thông tin liên hệ bên trái -->
+                <div class="contact-info">
+                    <span class="small-intro">Liên hệ</span>
+                    <h2 class="section-title">Tìm tớ</h2>
+                    <p class="contact-desc">Một góc nhỏ để chia sẻ và trò chuyện. Gửi tin nhắn cho mình nhé.</p>
+
+                    <div class="c-item">
+                        <div class="c-ico"><i class="fas fa-phone"></i></div>
+                        <div class="c-detail">
+                            <div class="c-lbl">Điện thoại</div>
+                            <div class="c-val">+84 944 681 407</div>
+                        </div>
+                    </div>
+
+                    <div class="c-item">
+                        <div class="c-ico"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="c-detail">
+                            <div class="c-lbl">Địa chỉ</div>
+                            <div class="c-val">Thành phố Huế, Việt Nam</div>
+                        </div>
+                    </div>
+
+                    <div class="c-item">
+                        <div class="c-ico"><i class="fas fa-envelope"></i></div>
+                        <div class="c-detail">
+                            <div class="c-lbl">Email</div>
+                            <div class="c-val">nguyenviethoangqb2004@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <!-- Social icons — fa-locket không tồn tại nên đã xóa, thay bằng các icon hợp lệ -->
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/vhoangg204/" target="_blank" rel="noopener" class="soc-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/vhoang.204/" target="_blank" rel="noopener" class="soc-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.threads.net/@vhoang.204" target="_blank" rel="noopener" class="soc-link" title="Threads">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@vhoang_204" target="_blank" rel="noopener" class="soc-link" title="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="soc-link" title="Spotify">
+                            <i class="fa-brands fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form liên hệ bên phải -->
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xwvzbddb" method="POST">
+                    <input type="text"  name="name"    placeholder="Tớ có thể gọi cậu là gì ạ?" required>
+                    <input type="email" name="email"   placeholder="Email của cậu (nếu muốn tớ reply)" >
+                    <textarea           name="message" rows="5" placeholder="Điều cậu muốn nói với tớ... tớ nghe ạ!" required></textarea>
+                    <button type="submit" id="sendBtn" class="btn btn-primary">
+                        <span id="btnText">Gửi đi</span>
+                    </button>
+                    <p id="formMsg"></p>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-wrap">
+            <p class="fc">© 2026 <span>Nguyễn Việt Hoàng</span>. All rights reserved.</p>
+            <p class="fl">Designed with <span>♥</span> in Huế</p>
+        </div>
+    </footer>
+
+    <!-- Script phải nằm NGOÀI footer và TRƯỚC </body> -->
+    <script src="script.js"></script>
+</body>
+</html>
