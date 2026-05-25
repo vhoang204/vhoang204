@@ -1,269 +1,363 @@
 /* =============================================
    script.js — Life of vhoang
-   =============================================
-
-   Các chức năng:
-   1. LOADER       — ẩn màn hình loading khi trang tải xong
-   2. THEME TOGGLE — đổi Dark / Light mode, lưu vào localStorage
-   3. HAMBURGER    — mở/đóng menu mobile
-   4. NAVBAR SCROLL — thêm shadow khi cuộn trang
-   5. SCROLL REVEAL — hiệu ứng fade-in khi cuộn đến section
-   6. ACTIVE NAV   — highlight link menu tương ứng với section đang xem
-   7. TYPING EFFECT — chữ gõ tự động ở Hero section
-   8. CONTACT FORM — gửi form bằng AJAX (không reload trang)
+   Smooth, lightweight portfolio interactions
    ============================================= */
 
+(() => {
+    "use strict";
 
-/* ─────────────────────────────────────────────
-   1. LOADER
-   ───────────────────────────────────────────── */
-window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    if (!loader) return;
+    const html = document.documentElement;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const storageKey = "nvh-theme";
 
-    // Sau 700ms: thêm class "out" để CSS chạy animation ẩn loader
-    setTimeout(() => {
-        loader.classList.add("out");
-        // Sau thêm 500ms (bằng duration của transition): xóa hẳn khỏi DOM
-        setTimeout(() => loader.remove(), 500);
-    }, 700);
-});
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
+    const loader = $("#loader");
+    const navbar = $(".navbar");
+    const themeBtn = $("#themeBtn");
+    const themeIcon = $("#themeIcon");
+    const ham = $("#ham");
+    const mobMenu = $("#mobMenu");
+    const navAnchors = $$(".nav-links a[href^='#']");
+    const sections = $$('section[id]');
+    const revealEls = $$(".reveal");
+    const typedEl = $("#typed");
+    const contactForm = $("#contactForm");
+    const formMsg = $("#formMsg");
+    const sendBtn = $("#sendBtn");
+    const btnText = $("#btnText");
 
-/* ─────────────────────────────────────────────
-   2. THEME TOGGLE (Dark / Light Mode)
-   ───────────────────────────────────────────── */
-const html     = document.documentElement;       // thẻ <html> — nơi lưu data-theme
-const themeBtn = document.getElementById("themeBtn");
-const themeIco = document.getElementById("themeIcon");
+    let menuOpen = false;
+    let ticking = false;
 
-/**
- * applyTheme(t) — áp dụng theme "light" hoặc "dark"
- * @param {string} t - "light" hoặc "dark"
- */
-function applyTheme(t) {
-    html.setAttribute("data-theme", t);         // đặt data-theme trên <html>
-    localStorage.setItem("nvh-theme", t);       // lưu vào localStorage để nhớ khi tải lại trang
-    // Đổi icon: dark mode → mặt trăng (moon), light mode → mặt trời (sun)
-    if (themeIco) {
-        themeIco.className = t === "dark" ? "fas fa-moon" : "fas fa-sun";
-    }
-}
+    /* Loader */
+    window.addEventListener("load", () => {
+        if (!loader) return;
 
-// Khi trang tải: lấy theme đã lưu, nếu chưa có thì dùng "light"
-if (themeBtn) {
-    applyTheme(localStorage.getItem("nvh-theme") || "light");
+        window.setTimeout(() => {
+            loader.classList.add("out");
+            window.setTimeout(() => loader.remove(), 520);
+        }, prefersReducedMotion.matches ? 0 : 450);
+    }, { once: true });
 
-    themeBtn.addEventListener("click", () => {
-        const current = html.getAttribute("data-theme");
-        // Nếu đang light → chuyển dark; đang dark → chuyển light
-        applyTheme(current === "dark" ? "light" : "dark");
-    });
-}
-
-
-/* ─────────────────────────────────────────────
-   3. HAMBURGER MENU (mobile)
-   ───────────────────────────────────────────── */
-const ham     = document.getElementById("ham");       // nút hamburger
-const mobMenu = document.getElementById("mobMenu");   // <ul> chứa các link nav
-
-/** Đóng menu mobile */
-function closeMenu() {
-    if (!ham || !mobMenu) return;
-    ham.classList.remove("on");         // bỏ class "on" → icon trở về ☰
-    mobMenu.classList.remove("open");   // bỏ class "open" → menu trượt ra ngoài
-}
-
-if (ham && mobMenu) {
-    // Khi click nút hamburger
-    ham.addEventListener("click", (e) => {
-        e.stopPropagation();                // ngăn event lan ra document
-        ham.classList.toggle("on");         // toggle icon ☰ ↔ ✕
-        mobMenu.classList.toggle("open");   // toggle menu hiện/ẩn
-    });
-
-    // Khi click vào một link trong menu → đóng menu
-    mobMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", closeMenu);
-    });
-
-    // Khi click ra ngoài menu → đóng menu
-    document.addEventListener("click", (e) => {
-        if (!ham.contains(e.target) && !mobMenu.contains(e.target)) {
-            closeMenu();
+    /* Theme */
+    function getInitialTheme() {
+        try {
+            const stored = localStorage.getItem(storageKey);
+            if (stored === "light" || stored === "dark") return stored;
+        } catch (_) {
+            // localStorage can be unavailable in private or restricted contexts.
         }
-    });
-}
 
-
-/* ─────────────────────────────────────────────
-   4. NAVBAR SCROLL — thêm shadow khi cuộn
-   ───────────────────────────────────────────── */
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-    if (!navbar) return;
-    // Nếu đã cuộn hơn 50px → thêm class "scrolled" để hiện shadow
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
-}, { passive: true });
-
-
-/* ─────────────────────────────────────────────
-   5. SCROLL REVEAL — fade-in khi section xuất hiện
-   ───────────────────────────────────────────── */
-const revealEls = document.querySelectorAll(".reveal");
-
-// IntersectionObserver: theo dõi khi element vào viewport
-const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("in");     // thêm class "in" → CSS chạy fade-in
-            revealObs.unobserve(entry.target);    // dừng theo dõi sau khi đã reveal
-        }
-    });
-}, {
-    threshold: 0.1,                   // khi 10% element hiện trong viewport thì trigger
-    rootMargin: "0px 0px -40px 0px"  // trigger sớm hơn 40px trước khi chạm đáy viewport
-});
-
-revealEls.forEach(el => revealObs.observe(el));
-
-
-/* ─────────────────────────────────────────────
-   6. ACTIVE NAV LINK khi cuộn trang
-   ───────────────────────────────────────────── */
-const sections   = document.querySelectorAll("section[id]");
-const navAnchors = document.querySelectorAll(".nav-links a");
-
-function updateActiveNav() {
-    let current = "";
-
-    // Duyệt từng section, tìm section nào đang trong tầm nhìn
-    sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 100) {
-            current = sec.getAttribute("id");
-        }
-    });
-
-    // Cập nhật class "active" cho link tương ứng
-    navAnchors.forEach(a => {
-        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
-    });
-}
-
-window.addEventListener("scroll", updateActiveNav, { passive: true });
-updateActiveNav(); // chạy ngay khi tải trang
-
-
-/* ─────────────────────────────────────────────
-   7. TYPING EFFECT — Hero section
-   ───────────────────────────────────────────── */
-const typedEl = document.getElementById("typed");
-
-// Danh sách các vai trò sẽ được gõ lần lượt
-const roles = [
-    "IT Student",
-    "Barista",
-    "Music Lover",
-    "Photographer",
-    "Digital Creator"
-];
-
-let roleIndex   = 0;   // đang ở role nào trong mảng roles[]
-let charIndex   = 0;   // đang ở ký tự nào trong role hiện tại
-let isDeleting  = false; // đang gõ thêm hay đang xóa
-
-function typeLoop() {
-    if (!typedEl) return;
-
-    const currentWord = roles[roleIndex];
-
-    if (!isDeleting) {
-        // Gõ thêm 1 ký tự
-        typedEl.textContent = currentWord.slice(0, ++charIndex);
-
-        if (charIndex >= currentWord.length) {
-            // Gõ xong → dừng 1.8 giây rồi bắt đầu xóa
-            isDeleting = true;
-            return setTimeout(typeLoop, 1800);
-        }
-    } else {
-        // Xóa 1 ký tự
-        typedEl.textContent = currentWord.slice(0, --charIndex);
-
-        if (charIndex === 0) {
-            // Xóa hết → dừng 400ms rồi chuyển sang role tiếp theo
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            return setTimeout(typeLoop, 400);
-        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
 
-    // Tốc độ: xóa nhanh hơn (40ms), gõ chậm hơn (90ms)
-    setTimeout(typeLoop, isDeleting ? 40 : 90);
-}
+    function applyTheme(theme) {
+        const nextTheme = theme === "dark" ? "dark" : "light";
+        html.setAttribute("data-theme", nextTheme);
 
-typeLoop();
+        if (themeIcon) {
+            themeIcon.className = nextTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+        }
 
-
-/* ─────────────────────────────────────────────
-   8. CONTACT FORM — gửi bằng AJAX (không reload trang)
-   ───────────────────────────────────────────── */
-const contactForm = document.getElementById("contactForm");
-const formMsg     = document.getElementById("formMsg");
-const sendBtn     = document.getElementById("sendBtn");
-const btnText     = document.getElementById("btnText");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-        // QUAN TRỌNG: e.preventDefault() ngăn trình duyệt gửi form theo cách thông thường
-        // (sẽ không reload trang hay chuyển trang nữa)
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-
-        // Vô hiệu hóa nút, đổi text → "Đang gửi..."
-        sendBtn.disabled      = true;
-        btnText.textContent   = "Đang gửi...";
-        sendBtn.style.opacity = "0.7";
-        formMsg.textContent   = "";
+        if (themeBtn) {
+            themeBtn.setAttribute(
+                "aria-label",
+                nextTheme === "dark" ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"
+            );
+            themeBtn.setAttribute("aria-pressed", String(nextTheme === "dark"));
+        }
 
         try {
-            // Gửi dữ liệu đến Formspree bằng fetch (AJAX)
-            const response = await fetch(contactForm.action, {
-                method:  "POST",
-                body:    formData,
-                headers: { "Accept": "application/json" }
-                // Header "Accept: application/json" báo cho Formspree biết đây là AJAX
-                // → Formspree trả về JSON thay vì redirect trang
+            localStorage.setItem(storageKey, nextTheme);
+        } catch (_) {
+            // Keep theme working even when persistence is blocked.
+        }
+    }
+
+    applyTheme(getInitialTheme());
+
+    themeBtn?.addEventListener("click", () => {
+        applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    });
+
+    /* Mobile menu */
+    function setMenu(open) {
+        if (!ham || !mobMenu) return;
+
+        menuOpen = open;
+        ham.classList.toggle("on", open);
+        mobMenu.classList.toggle("open", open);
+        ham.setAttribute("aria-expanded", String(open));
+        ham.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
+        document.body.style.overflow = open ? "hidden" : "";
+    }
+
+    ham?.setAttribute("aria-expanded", "false");
+
+    ham?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setMenu(!menuOpen);
+    });
+
+    mobMenu?.addEventListener("click", (event) => {
+        const link = event.target.closest("a");
+        if (link) setMenu(false);
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!menuOpen || !ham || !mobMenu) return;
+        if (!ham.contains(event.target) && !mobMenu.contains(event.target)) setMenu(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuOpen) {
+            setMenu(false);
+            ham?.focus();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900 && menuOpen) setMenu(false);
+    }, { passive: true });
+
+    /* Smooth anchor navigation */
+    navAnchors.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const id = link.getAttribute("href");
+            if (!id || id === "#") return;
+
+            const target = $(id);
+            if (!target) return;
+
+            event.preventDefault();
+            setMenu(false);
+
+            target.scrollIntoView({
+                behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+                block: "start"
             });
 
-            if (response.ok) {
-                // Thành công ✅
-                formMsg.style.color = "var(--primary)";
-                formMsg.textContent = "✅ Tớ nhận được lời nhắn của cậu rồi nhá!";
-                contactForm.reset(); // Xóa sạch form để nhắn tiếp nếu muốn
-            } else {
-                // Formspree trả về lỗi
-                formMsg.style.color = "#e07050";
-                formMsg.textContent = "❌ Có lỗi xảy ra. Vui lòng thử lại.";
-            }
+            history.pushState(null, "", id);
+        });
+    });
 
-        } catch (error) {
-            // Lỗi mạng (không kết nối được server)
-            formMsg.style.color = "#e07050";
-            formMsg.textContent = "❌ Không thể kết nối máy chủ.";
+    /* Navbar state */
+    function updateNavbar() {
+        navbar?.classList.toggle("scrolled", window.scrollY > 28);
+    }
+
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+            updateNavbar();
+            ticking = false;
+        });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    updateNavbar();
+
+    /* Reveal animations */
+    if (revealEls.length) {
+        if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
+            revealEls.forEach((el) => el.classList.add("in"));
+        } else {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("in");
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: "0px 0px -48px 0px"
+            });
+
+            revealEls.forEach((el) => revealObserver.observe(el));
+        }
+    }
+
+    /* Active nav */
+    if (sections.length && navAnchors.length && "IntersectionObserver" in window) {
+        const activeMap = new Map(navAnchors.map((link) => [link.getAttribute("href")?.slice(1), link]));
+
+        const setActiveLink = (id) => {
+            navAnchors.forEach((link) => {
+                const active = link === activeMap.get(id);
+                link.classList.toggle("active", active);
+                if (active) link.setAttribute("aria-current", "page");
+                else link.removeAttribute("aria-current");
+            });
+        };
+
+        const activeObserver = new IntersectionObserver((entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visible) setActiveLink(visible.target.id);
+        }, {
+            threshold: [0.2, 0.45, 0.7],
+            rootMargin: "-22% 0px -58% 0px"
+        });
+
+        sections.forEach((section) => activeObserver.observe(section));
+    }
+
+    /* Memory timeline sliders */
+    const memorySliders = $$('[data-memory-slider]');
+
+    memorySliders.forEach((slider) => {
+        const milestone = slider.closest('[data-memory-milestone]');
+        const viewport = $('.memory-viewport', slider);
+        const track = $('.memory-track', slider);
+        const slides = $$('.memory-slide', slider);
+        const prevBtn = $('.memory-prev', slider);
+        const nextBtn = $('.memory-next', slider);
+        const count = $('.memory-count', slider);
+        let current = 0;
+        let startX = 0;
+        let pointerDown = false;
+
+        if (!viewport || !track || slides.length === 0) return;
+
+        function setActiveMilestone() {
+            $$('[data-memory-milestone]').forEach((item) => item.classList.toggle('is-active', item === milestone));
         }
 
-        // Khôi phục nút "Gửi đi"
-        sendBtn.disabled      = false;
-        btnText.textContent   = "Gửi đi";
-        sendBtn.style.opacity = "1";
+        function updateSlider(index) {
+            current = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('is-active', slideIndex === current);
+                slide.setAttribute('aria-hidden', slideIndex === current ? 'false' : 'true');
+            });
+            if (count) count.textContent = `${current + 1} / ${slides.length}`;
+            setActiveMilestone();
+        }
 
-        // Tự xóa thông báo sau 5 giây
-        setTimeout(() => {
-            formMsg.textContent = "";
-        }, 5000);
+        prevBtn?.addEventListener('click', () => updateSlider(current - 1));
+        nextBtn?.addEventListener('click', () => updateSlider(current + 1));
+
+        viewport.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+            event.preventDefault();
+            updateSlider(current + (event.key === 'ArrowRight' ? 1 : -1));
+        });
+
+        viewport.addEventListener('pointerdown', (event) => {
+            pointerDown = true;
+            startX = event.clientX;
+            viewport.setPointerCapture?.(event.pointerId);
+            setActiveMilestone();
+        });
+
+        viewport.addEventListener('pointerup', (event) => {
+            if (!pointerDown) return;
+            pointerDown = false;
+            const distance = event.clientX - startX;
+            if (Math.abs(distance) > 42) updateSlider(current + (distance < 0 ? 1 : -1));
+        });
+
+        viewport.addEventListener('pointercancel', () => {
+            pointerDown = false;
+        });
+
+        updateSlider(0);
     });
-}
+
+    /* Typing effect */
+    const roles = ["IT Student", "Barista", "Music Lover", "Photographer", "Digital Creator"];
+
+    function startTyping() {
+        if (!typedEl) return;
+
+        if (prefersReducedMotion.matches) {
+            typedEl.textContent = roles[0];
+            return;
+        }
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        let timeoutId;
+
+        const type = () => {
+            window.clearTimeout(timeoutId);
+
+            const word = roles[roleIndex];
+            charIndex += deleting ? -1 : 1;
+            typedEl.textContent = word.slice(0, charIndex);
+
+            if (!deleting && charIndex === word.length) {
+                deleting = true;
+                timeoutId = window.setTimeout(type, 1600);
+                return;
+            }
+
+            if (deleting && charIndex === 0) {
+                deleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                timeoutId = window.setTimeout(type, 420);
+                return;
+            }
+
+            timeoutId = window.setTimeout(type, deleting ? 38 : 86);
+        };
+
+        type();
+
+        document.addEventListener("visibilitychange", () => {
+            window.clearTimeout(timeoutId);
+            if (!document.hidden) timeoutId = window.setTimeout(type, 180);
+        });
+    }
+
+    startTyping();
+
+    /* Contact form */
+    function setFormMessage(message, isSuccess = false) {
+        if (!formMsg) return;
+        formMsg.style.color = isSuccess ? "var(--primary)" : "#d66b4f";
+        formMsg.textContent = message;
+    }
+
+    contactForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (!sendBtn || !btnText) return;
+
+        const originalText = btnText.textContent;
+        const formData = new FormData(contactForm);
+
+        sendBtn.disabled = true;
+        sendBtn.setAttribute("aria-busy", "true");
+        btnText.textContent = "Đang gửi...";
+        setFormMessage("");
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" }
+            });
+
+            if (!response.ok) throw new Error("Form submission failed");
+
+            contactForm.reset();
+            setFormMessage("Tớ nhận được lời nhắn của cậu rồi nhá!", true);
+        } catch (_) {
+            setFormMessage("Có lỗi xảy ra. Vui lòng thử lại.");
+        } finally {
+            sendBtn.disabled = false;
+            sendBtn.removeAttribute("aria-busy");
+            btnText.textContent = originalText || "Gửi đi";
+
+            window.setTimeout(() => setFormMessage(""), 5000);
+        }
+    });
+})();
