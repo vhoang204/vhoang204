@@ -956,6 +956,7 @@ h4 {
 }
 
 .memory-viewport {
+    
     position: relative;
 
     overflow: hidden;
@@ -965,6 +966,7 @@ h4 {
     background: rgba(255,255,255,0.04);
 
     padding: 1rem;
+    
 }
 
 .memory-track {
