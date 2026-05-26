@@ -215,7 +215,7 @@ h4 {
 }
 
 .section {
-    padding-block: var(--space-section);
+     padding-block: 24px;
 }
 
 .section-title {
@@ -461,7 +461,7 @@ h4 {
 
 .hero {
     position: relative;
-    min-height: 100svh;
+    min-height: 82svh;
     display: flex;
     align-items: center;
     padding-top: var(--nav-height);
@@ -614,6 +614,7 @@ h4 {
     border-radius: 32px;
 
     scrollbar-width: none;
+    margin-left: -8px;
 }
 
 .bartender-slider::-webkit-scrollbar {
@@ -670,8 +671,12 @@ h4 {
 
 .about-text p,
 .bartender-text p {
-    max-width: 720px;
-    margin-top: 1.1rem;
+   max-width: 720px;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+
+    line-height: 1.8;
     color: var(--text-muted);
     font-size: 1.02rem;
     line-height: 1.95;
@@ -823,19 +828,115 @@ h4 {
     line-height: 1.75;
 }
 
-/* =============================================
-   BARTENDER / TAGS
-   ============================================= */
+/* ============/* ==================================================
+   LIFESTYLE
+================================================== */
 
+.lifestyle .memory-gallery {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lifestyle .memory-slide img,
+.lifestyle .memory-slide video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    border-radius: 24px;
+
+    display: block;
+}
+
+/* video */
+.lifestyle-video {
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+    border-radius: 24px;
+
+    display: block;
+}
+
+/* tags */
+.lifestyle .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.lifestyle .tags span {
+    padding: 10px 16px;
+    border-radius: 13px;
+
+    background: rgba(255,255,255,0.08);
+
+    font-size: 10px;
+    color: #050505;
+
+    backdrop-filter: blur(10px);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+
+    .lifestyle .memory-slide img,
+    .lifestyle .memory-slide video {
+        border-radius: 18px;
+    }
+
+}
+
+/* thu gọn section lifestyle */
+
+.lifestyle {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* thu gọn khoảng cách text và slider */
+
+.lifestyle .memory-milestone {
+    gap: 12px;
+}
+
+/* thu gọn title */
+
+.lifestyle .section-title {
+    margin-bottom: 12px;
+}
+
+/* thu gọn intro */
+
+.lifestyle .small-intro {
+    margin-bottom: 4px;
+}
+
+/* thu gọn phần text */
+
+.lifestyle .memory-copy {
+    margin-bottom: 10px;
+}
+
+/* slider sát hơn */
+
+.lifestyle .memory-gallery {
+    margin-top: 10px;
+}
 .bartender-layout {
-    display: grid;
-    grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
-    gap: clamp(2.4rem, 6vw, 5rem);
+      display: grid;
+    grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1fr);
+
+    gap: 1.2rem; /* giảm khoảng cách */
+
     align-items: center;
 }
 
 .bartender-text {
     order: 2;
+    padding-right: 0.2rem;
+
 }
 
 .bartender-img {
@@ -1017,10 +1118,10 @@ h4 {
     display: flex;
     flex-direction: column;
 
-    gap: 1.5rem;
+    gap: 0.8rem;
 
-    margin-bottom: 2rem;
-    padding: 1.25rem;
+    margin-bottom: 1rem;
+    padding: 0.7rem;
 
     border-radius: 32px;
 
@@ -1056,7 +1157,7 @@ h4 {
 
     background: rgba(255,255,255,0.04);
 
-    padding: 0rem;
+    line-height: 0;
     
 }
 
@@ -1074,7 +1175,7 @@ h4 {
     justify-content: center;
     align-items: center;
 
-    padding: 0.3rem;
+    padding: 0rem;
 }
 
 .memory-slide img {
@@ -1428,7 +1529,7 @@ footer span {
     }
 
     .section {
-        padding-block: clamp(58px, 16vw, 82px);
+       padding-block: 28px;
     }
 
     .logo {
