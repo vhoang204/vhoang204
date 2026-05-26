@@ -919,7 +919,10 @@ h4 {
 }
 
 
-
+.special-full-image img{
+    object-fit: contain !important;
+    background: #f5f1eb;
+}
 .memory-milestone {
     position: relative;
 
