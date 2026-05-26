@@ -564,7 +564,95 @@ h4 {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-hover);
 }
+.bartender-media {
 
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+}
+
+.bartender-video {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-hover);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    display: block;
+
+    background: #000;
+}
+
+.bartender-img {
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+}
+/* =============================================
+   BARTENDER SLIDER
+============================================= */
+
+.bartender-slider {
+    width: 100%;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+
+    border-radius: 32px;
+
+    scrollbar-width: none;
+}
+
+.bartender-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.bartender-track {
+    display: flex;
+
+    gap: 1rem;
+}
+
+.bartender-slide {
+    flex: 0 0 100%;
+
+    scroll-snap-align: center;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.12);
+}
+
+.bartender-slide img,
+.bartender-video {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    display: block;
+}
 .hero-image img {
     transform: rotate(1.2deg);
 }
