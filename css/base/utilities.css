@@ -1,0 +1,45 @@
+/* =============================================
+   UTILITY CLASSES
+   Only for layout helpers, never for styling components
+   ============================================= */
+
+/* Text utilities */
+.u-text-center { text-align: center; }
+.u-text-left { text-align: left; }
+.u-text-right { text-align: right; }
+
+/* Flex utilities */
+.u-flex { display: flex; }
+.u-flex-column { flex-direction: column; }
+.u-flex-wrap { flex-wrap: wrap; }
+.u-items-center { align-items: center; }
+.u-justify-center { justify-content: center; }
+.u-justify-between { justify-content: space-between; }
+.u-gap-sm { gap: var(--space-sm); }
+.u-gap-md { gap: var(--space-md); }
+
+/* Spacing utilities */
+.u-mx-auto { margin-left: auto; margin-right: auto; }
+.u-mt-auto { margin-top: auto; }
+.u-mb-auto { margin-bottom: auto; }
+
+/* Display utilities */
+.u-hidden { display: none; }
+.u-visible { display: block; }
+
+/* Position utilities */
+.u-relative { position: relative; }
+.u-absolute { position: absolute; }
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

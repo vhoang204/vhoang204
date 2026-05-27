@@ -1,0 +1,13 @@
+/* Card Component */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}

@@ -1,0 +1,71 @@
+/* =============================================
+   DARK MODE - Warm dark, not pure black
+   Coffee / Charcoal tones for cinematic feel
+   ============================================= */
+
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Background - Warm dark tones */
+    --bg-main: #17110c;
+    --bg-secondary: #21170f;
+    --bg-soft: #1d1510;
+    --surface: rgba(45, 32, 24, 0.85);  /* Tăng opacity lên 0.85 */
+    --surface-strong: #2a1e17;
+    --surface-muted: #241911;
+
+    /* Text - Warm light (QUAN TRỌNG: phải sáng hơn) */
+    --text-main: #f6eadc;     /* Màu chữ chính - sáng */
+    --text-soft: #e8d5c0;     /* Màu chữ mềm - sáng vừa */
+    --text-muted: #c4b5a3;    /* Màu chữ phụ - sáng nhẹ */
+    --text-inverse: #1a120d;  /* Màu chữ đảo ngược - tối */
+
+    /* Primary - Desaturated warm brown */
+    --primary: #d3a06f;       /* Vẫn giữ màu nâu cam */
+    --primary-hover: #e2b889;
+    --primary-soft: rgba(211, 160, 111, 0.2);  /* Tăng opacity cho dễ nhìn */
+
+    /* Borders & Surfaces */
+    --card-border: rgba(228, 198, 166, 0.25);  /* Tăng opacity */
+    --nav-bg: rgba(23, 17, 12, 0.92);          /* Tăng opacity */
+
+    /* Shadows - Deeper for dark mode */
+    --shadow-sm: 0 10px 26px rgba(0, 0, 0, 0.3);
+    --shadow: 0 20px 52px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 28px 68px rgba(0, 0, 0, 0.5);
+    --focus-ring: 0 0 0 4px rgba(211, 160, 111, 0.3);
+}
+
+/* Đảm bảo card và surface có nền đủ sáng để đọc chữ */
+[data-theme="dark"] .about__info-cell,
+[data-theme="dark"] .contact__layout,
+[data-theme="dark"] .music__list,
+[data-theme="dark"] .timeline__milestone,
+[data-theme="dark"] .lifestyle__milestone {
+    background: rgba(45, 32, 24, 0.9);
+    border-color: rgba(228, 198, 166, 0.2);
+}
+
+/* Đảm bảo chữ trong about section hiển thị rõ */
+[data-theme="dark"] .about__desc,
+[data-theme="dark"] .timeline__content,
+[data-theme="dark"] .lifestyle__content,
+[data-theme="dark"] .music__track-artist,
+[data-theme="dark"] .contact__desc,
+[data-theme="dark"] .contact__value {
+    color: #c4b5a3;  /* Màu sáng vừa đủ để đọc */
+}
+
+/* Đảm bảo title vẫn rõ */
+[data-theme="dark"] .about__title,
+[data-theme="dark"] .timeline__title,
+[data-theme="dark"] .lifestyle__title,
+[data-theme="dark"] .music__title,
+[data-theme="dark"] .contact__title {
+    color: #f6eadc;  /* Màu trắng be sáng */
+}
+
+/* Smooth theme transition */
+* {
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}

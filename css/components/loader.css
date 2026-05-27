@@ -1,0 +1,49 @@
+/* =============================================
+   LOADER - Cinematic entrance animation
+   ============================================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: var(--bg-main);
+    transition: opacity 500ms ease, visibility 500ms ease;
+}
+
+.loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader__inner {
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 7vw, 4rem);
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+}
+
+.loader__char {
+    display: inline-block;
+    animation: loaderFloat 900ms var(--ease) infinite alternate;
+}
+
+.loader__char:nth-child(2) { animation-delay: 70ms; }
+.loader__char:nth-child(3) { animation-delay: 140ms; }
+.loader__char:nth-child(4) { animation-delay: 210ms; }
+.loader__char:nth-child(5) { animation-delay: 280ms; }
+.loader__char:nth-child(6) { animation-delay: 350ms; }
+
+@keyframes loaderFloat {
+    from {
+        opacity: 0.42;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-8px);
+    }
+}

@@ -1,0 +1,404 @@
+/* =============================================
+   CONTACT SECTION - Clean, Balanced Icons
+   ============================================= */
+
+/* Container */
+.contact__container {
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+/* Header styles */
+.contact__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact__eyebrow {
+    display: block;
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.contact__title {
+    font-size: 2.8rem;
+    margin: 0;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+/* Layout Desktop - 2 cột */
+.contact__layout {
+    display: grid;
+    background: #f5ede3;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    border-radius: 20px
+}
+
+/* =============================================
+   INFO SECTION (BÊN TRÁI)
+   ============================================= */
+
+.contact__desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+/* Contact items - icon cân đối */
+.contact__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.contact__icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-soft);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.contact__item:hover .contact__icon {
+    transform: scale(1.05);
+    background: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.contact__details {
+    flex: 1;
+}
+
+.contact__label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.contact__value {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    line-height: 1.4;
+}
+
+.contact__value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact__value a:hover {
+    color: var(--primary);
+}
+
+/* =============================================
+   SOCIAL ICONS - CÂN ĐỐI ĐẸP
+   ============================================= */
+
+.contact__social {
+    margin-top: 28px;
+}
+
+.contact__social-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+/* Social icons container - cân đối */
+.contact__social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.contact__social-link {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    transition: all 0.2s ease;
+}
+
+.contact__social-link:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+/* =============================================
+   FORM SECTION (BÊN PHẢI)
+   ============================================= */
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact__input,
+.contact__textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--card-border);
+    border-radius: 14px;
+    background: var(--bg-soft);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.contact__input::placeholder,
+.contact__textarea::placeholder {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.contact__input:not(:placeholder-shown),
+.contact__textarea:not(:placeholder-shown) {
+    border-color: var(--primary);
+    background: var(--surface);
+}
+
+.contact__textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact__submit {
+    width: 100%;
+    padding: 14px 28px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 40px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.contact__submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact__submit:active {
+    transform: translateY(0);
+}
+
+.contact__form-msg {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 8px;
+    color: var(--text-muted);
+    min-height: 20px;
+}
+
+/* =============================================
+   RESPONSIVE - TABLET & MOBILE
+   ============================================= */
+
+@media (max-width: 768px) {
+    .contact__container {
+        padding-inline: 20px;
+    }
+
+    .contact__header {
+        margin-bottom: 28px;
+    }
+
+    .contact__eyebrow {
+        font-size: 0.7rem;
+    }
+
+    .contact__title {
+        font-size: 2rem;
+    }
+
+    /* Chuyển sang 1 cột */
+    .contact__layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        border-radius: 20px
+        
+    }
+
+    .contact__info {
+        order: 1;
+    }
+
+    .contact__form {
+        order: 2;
+    }
+
+    .contact__desc {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+    }
+
+    /* Icon trên mobile - vẫn cân đối */
+    .contact__item {
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .contact__icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .contact__label {
+        font-size: 0.65rem;
+    }
+
+    .contact__value {
+        font-size: 0.9rem;
+    }
+
+    /* Social icons - cân đối trên mobile */
+    .contact__social {
+        margin-top: 24px;
+    }
+
+    .contact__social-label {
+        text-align: left;
+        margin-bottom: 14px;
+    }
+
+    .contact__social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .contact__social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Form trên mobile */
+    .contact__input,
+    .contact__textarea {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+
+    .contact__submit {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Điện thoại nhỏ (dưới 480px) */
+@media (max-width: 480px) {
+    .contact__container {
+        padding-inline: 16px;
+    }
+
+    .contact__title {
+        font-size: 1.8rem;
+    }
+
+    .contact__desc {
+        font-size: 0.85rem;
+    }
+
+    .contact__icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .contact__label {
+        font-size: 0.6rem;
+    }
+
+    .contact__value {
+        font-size: 0.85rem;
+    }
+
+    /* Social icons - wrap đẹp */
+    .contact__social-icons {
+        gap: 10px;
+    }
+
+    .contact__social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .contact__input,
+    .contact__textarea {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        border-radius: 10px;
+    }
+
+    .contact__submit {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop lớn */
+@media (min-width: 1024px) {
+    .contact__container {
+        max-width: 1100px;
+    }
+    
+    .contact__submit {
+        width: auto;
+        min-width: 180px;
+        align-self: flex-start;
+    }
+}

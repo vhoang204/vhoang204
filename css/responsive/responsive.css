@@ -1,0 +1,221 @@
+/* =============================================
+   RESPONSIVE - Mobile-first breakpoints
+   ============================================= */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        padding-inline: 0;
+    }
+}
+
+/* Desktop Small */
+@media (min-width: 1024px) {
+    :root {
+        --fs-base: 1.125rem;
+    }
+    
+    .section {
+        padding-block: calc(var(--space-2xl) * 2);
+    }
+}
+
+/* Desktop Large */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 640px) {
+    .btn {
+        width: 100%;
+    }
+    
+    .hero__buttons {
+        width: min(100%, 340px);
+        margin-inline: auto;
+    }
+}
+
+/* Prevent horizontal scroll */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Touch-friendly tap highlights */
+@media (hover: none) and (pointer: coarse) {
+    button,
+    a,
+    .btn {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    button:active,
+    a:active,
+    .btn:active {
+        opacity: 0.7;
+    }
+}
+/* =============================================
+   RESPONSIVE - GIAO DIỆN ĐIỆN THOẠI
+   Đúng thứ tự như trong ảnh: Info lên trên, Form xuống dưới
+   ============================================= */
+
+@media (max-width: 768px) {
+    /* ===== CONTACT SECTION ===== */
+    .contact__header {
+        margin-bottom: 20px;
+    }
+
+    .contact__eyebrow {
+        font-size: 0.7rem;
+    }
+
+    .contact__title {
+        font-size: 2rem;
+        margin-top: 4px;
+    }
+
+    .contact__layout {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 20px 16px;
+    }
+
+    /* INFO - lên trên (giống ảnh) */
+    .contact__info {
+        order: 1;
+    }
+
+    /* FORM - xuống dưới (giống ảnh) */
+    .contact__form {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .contact__desc {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        color: var(--text-muted);
+        text-align: left;
+    }
+
+    .contact__address {
+        margin-bottom: 24px;
+    }
+
+    .contact__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+
+    .contact__icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+        background: var(--primary-soft);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact__label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+
+    .contact__value {
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        line-height: 1.4;
+    }
+
+    .contact__value a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Social Icons */
+    .contact__social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .contact__social-link {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+        border-radius: 50%;
+        border: 1px solid var(--card-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        transition: all 0.2s ease;
+    }
+
+    /* ===== FORM STYLES ===== */
+    .contact__input,
+    .contact__textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.85rem;
+    }
+
+    .contact__input::placeholder,
+    .contact__textarea::placeholder {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .contact__textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .contact__submit {
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        background: var(--primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .contact__submit:active {
+        transform: scale(0.98);
+    }
+
+    .contact__form-msg {
+        font-size: 0.75rem;
+        text-align: center;
+        margin-top: 8px;
+        color: var(--text-muted);
+    }
+}

@@ -1,0 +1,20 @@
+/* Grid System */
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.grid--2cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid--2cols,
+    .grid--3cols {
+        grid-template-columns: 1fr;
+    }
+}

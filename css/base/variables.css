@@ -1,0 +1,88 @@
+/* =============================================
+   DESIGN SYSTEM - Variables
+   Warm brown / Japanese-inspired
+   ============================================= */
+
+:root {
+    /* Light Theme (default) */
+    color-scheme: light;
+
+    /* Colors - Background */
+    ---bg-main: #f4eadc;
+    --bg-secondary: #ead9c2;
+    --bg-soft: #fbf6ee;
+    --surface: rgba(255, 250, 242, 0.78);
+    --surface-strong: #fff8ef;
+    --surface-muted: #efe0cd;
+
+
+    /* Colors - Text */
+    --text-main: #2d241d;
+    --text-soft: #4f4035;
+    --text-muted: #75665a;
+    --text-inverse: #fffaf2;
+
+    /* Colors - Primary / Accent */
+    --primary: #8b5f3d;
+    --primary-hover: #6f482d;
+    --primary-soft: rgba(139, 95, 61, 0.12);
+    --accent: #b98a5f;
+
+    /* Colors - Borders & Surfaces */
+    --card-bg: var(--surface);
+    --card-border: rgba(117, 91, 67, 0.16);
+    --nav-bg: rgba(244, 234, 220, 0.84);
+
+    /* Shadows - Soft & Cinematic */
+    --shadow-sm: 0 10px 24px rgba(80, 55, 35, 0.08);
+    --shadow: 0 18px 46px rgba(80, 55, 35, 0.12);
+    --shadow-hover: 0 24px 58px rgba(80, 55, 35, 0.18);
+    --focus-ring: 0 0 0 4px rgba(139, 95, 61, 0.22);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Border Radius */
+    --radius-xs: 10px;
+    --radius-sm: 14px;
+    --radius: 24px;
+    --radius-lg: 34px;
+    --radius-pill: 999px;
+
+    /* Spacing System (Mobile First) */
+    --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+    --space-sm: clamp(0.75rem, 2vw, 1rem);
+    --space-md: clamp(1rem, 3vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 4vw, 2rem);
+    --space-xl: clamp(2rem, 5vw, 3rem);
+    --space-2xl: clamp(2.5rem, 6vw, 4rem);
+
+    /* Typography Scale (Mobile First) */
+    --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
+    --fs-sm: clamp(0.875rem, 2.5vw, 1rem);
+    --fs-base: clamp(1rem, 3vw, 1.125rem);
+    --fs-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+    --fs-xl: clamp(1.25rem, 4vw, 1.5rem);
+    --fs-2xl: clamp(1.5rem, 5vw, 1.875rem);
+    --fs-3xl: clamp(2rem, 6vw, 2.5rem);
+    --fs-4xl: clamp(2.5rem, 8vw, 3.5rem);
+    --fs-5xl: clamp(3rem, 10vw, 4.5rem);
+
+    /* Layout */
+    --container: 1160px;
+    --nav-height: 68px;
+    
+    /* Transitions */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: 180ms var(--ease);
+    --transition: 280ms var(--ease);
+    --transition-slow: 450ms var(--ease);
+}
+
+/* Tablet & Desktop spacing overrides */
+@media (min-width: 768px) {
+    :root {
+        --nav-height: 76px;
+    }
+}

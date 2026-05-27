@@ -1,0 +1,43 @@
+/* =============================================
+   FOOTER SECTION - Minimal, centered
+   ============================================= */
+
+.footer {
+    padding-block: var(--space-xl);
+    border-top: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
+.footer__container {
+    width: min(100% - calc(var(--space-md) * 2), var(--container));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    margin-inline: auto;
+}
+
+.footer__highlight {
+    color: var(--primary);
+}
+
+.footer__heart {
+    color: var(--primary);
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.footer__heart:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .footer__container {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}

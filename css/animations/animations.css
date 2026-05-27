@@ -1,0 +1,59 @@
+/* =============================================
+   ANIMATIONS - Smooth, cinematic, transform-based
+   ============================================= */
+
+/* Fade + TranslateY reveal */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--transition-slow) var(--ease), transform var(--transition-slow) var(--ease);
+}
+
+.reveal--in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loader animation */
+@keyframes loaderFloat {
+    from {
+        opacity: 0.42;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-8px);
+    }
+}
+
+/* Scale hover animation */
+.hover-scale {
+    transition: transform var(--transition) var(--ease);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Glassmorphism fade in */
+@keyframes glassFade {
+    from {
+        backdrop-filter: blur(0px);
+        opacity: 0;
+    }
+    to {
+        backdrop-filter: blur(18px) saturate(150%);
+        opacity: 1;
+    }
+}
