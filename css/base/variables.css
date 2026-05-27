@@ -7,82 +7,81 @@
     /* Light Theme (default) */
     color-scheme: light;
 
-    /* Colors - Background */
-    ---bg-main: #f4eadc;
-    --bg-secondary: #ead9c2;
-    --bg-soft: #fbf6ee;
-    --surface: rgba(255, 250, 242, 0.78);
-    --surface-strong: #fff8ef;
-    --surface-muted: #efe0cd;
+    /* ===== MÀU NỀN ===== */
+    --bg-main: #e9dbc9;        /* Màu nền chính - be sáng, ấm áp */
+    --bg-secondary: #ead9c2;   /* Màu nền phụ - be đậm hơn, tạo chiều sâu */
+    --bg-soft: #f3e7d5;        /* Màu nền mềm - dùng cho card, form (đã sửa) */
+    --surface: rgba(245, 239, 227, 0.78);  /* Bề mặt glassmorphism */
+    --surface-strong: #fff8ef; /* Bề mặt đậm - cho các element nổi bật (đã sửa) */
+    --surface-muted: #efe0cd;  /* Bề mặt nhạt - cho các element phụ */
 
+    /* ===== MÀU CHỮ ===== */
+    --text-main: #2d241d;      /* Màu chữ chính - nâu đậm, dễ đọc */
+    --text-soft: #4f4035;      /* Màu chữ mềm - nâu nhạt hơn */
+    --text-muted: #75665a;     /* Màu chữ phụ - xám nâu, nhẹ nhàng */
+    --text-inverse: #fffaf2;   /* Màu chữ ngược - dùng trên nền tối */
 
-    /* Colors - Text */
-    --text-main: #2d241d;
-    --text-soft: #4f4035;
-    --text-muted: #75665a;
-    --text-inverse: #fffaf2;
+    /* ===== MÀU CHỦ ĐẠO (Primary) ===== */
+    --primary: #8b5f3d;        /* Màu chính - nâu cam, ấm áp */
+    --primary-hover: #6f482d;  /* Màu khi hover - đậm hơn */
+    --primary-soft: rgba(139, 95, 61, 0.12); /* Màu chính dạng mờ */
+    --accent: #b98a5f;         /* Màu nhấn - nâu sáng hơn */
 
-    /* Colors - Primary / Accent */
-    --primary: #8b5f3d;
-    --primary-hover: #6f482d;
-    --primary-soft: rgba(139, 95, 61, 0.12);
-    --accent: #b98a5f;
+    /* ===== VIỀN & BỀ MẶT ===== */
+    --card-bg: var(--surface);  /* Nền card - dùng chung với surface */
+    --card-border: rgba(117, 91, 67, 0.16); /* Viền card - mờ nhẹ */
+    --nav-bg: rgba(244, 234, 220, 0.84);    /* Nền navbar - trong suốt nhẹ */
 
-    /* Colors - Borders & Surfaces */
-    --card-bg: var(--surface);
-    --card-border: rgba(117, 91, 67, 0.16);
-    --nav-bg: rgba(244, 234, 220, 0.84);
+    /* ===== ĐỔ BÓNG (Shadow) ===== */
+    --shadow-sm: 0 10px 24px rgba(80, 55, 35, 0.08);   /* Đổ bóng nhỏ */
+    --shadow: 0 18px 46px rgba(80, 55, 35, 0.12);      /* Đổ bóng vừa */
+    --shadow-hover: 0 24px 58px rgba(80, 55, 35, 0.18); /* Đổ bóng khi hover */
+    --focus-ring: 0 0 0 4px rgba(139, 95, 61, 0.22);   /* Viền focus */
 
-    /* Shadows - Soft & Cinematic */
-    --shadow-sm: 0 10px 24px rgba(80, 55, 35, 0.08);
-    --shadow: 0 18px 46px rgba(80, 55, 35, 0.12);
-    --shadow-hover: 0 24px 58px rgba(80, 55, 35, 0.18);
-    --focus-ring: 0 0 0 4px rgba(139, 95, 61, 0.22);
+    /* ===== TYPOGRAPHY ===== */
+    --font-heading: 'Playfair Display', Georgia, serif;  /* Font tiêu đề - serif */
+    --font-body: 'Inter', system-ui, sans-serif;         /* Font nội dung - sans */
 
-    /* Typography */
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* ===== BO GÓC ===== */
+    --radius-xs: 10px;     /* Bo góc rất nhỏ */
+    --radius-sm: 14px;     /* Bo góc nhỏ */
+    --radius: 24px;        /* Bo góc vừa */
+    --radius-lg: 34px;     /* Bo góc lớn */
+    --radius-pill: 999px;  /* Bo góc tròn hoàn toàn (dạng viên thuốc) */
 
-    /* Border Radius */
-    --radius-xs: 10px;
-    --radius-sm: 14px;
-    --radius: 24px;
-    --radius-lg: 34px;
-    --radius-pill: 999px;
+    /* ===== KHOẢNG CÁCH (Spacing) ===== */
+    --space-xs: clamp(0.5rem, 1vw, 0.75rem);   /* 8-12px */
+    --space-sm: clamp(0.75rem, 2vw, 1rem);    /* 12-16px */
+    --space-md: clamp(1rem, 3vw, 1.5rem);     /* 16-24px */
+    --space-lg: clamp(1.5rem, 4vw, 2rem);     /* 24-32px */
+    --space-xl: clamp(2rem, 5vw, 3rem);       /* 32-48px */
+    --space-2xl: clamp(2.5rem, 6vw, 4rem);    /* 40-64px */
 
-    /* Spacing System (Mobile First) */
-    --space-xs: clamp(0.5rem, 1vw, 0.75rem);
-    --space-sm: clamp(0.75rem, 2vw, 1rem);
-    --space-md: clamp(1rem, 3vw, 1.5rem);
-    --space-lg: clamp(1.5rem, 4vw, 2rem);
-    --space-xl: clamp(2rem, 5vw, 3rem);
-    --space-2xl: clamp(2.5rem, 6vw, 4rem);
+    /* ===== CỠ CHỮ (Font Size) ===== */
+    --fs-xs: clamp(0.75rem, 2vw, 0.875rem);   /* 12-14px */
+    --fs-sm: clamp(0.875rem, 2.5vw, 1rem);    /* 14-16px */
+    --fs-base: clamp(1rem, 3vw, 1.125rem);    /* 16-18px */
+    --fs-lg: clamp(1.125rem, 3.5vw, 1.25rem); /* 18-20px */
+    --fs-xl: clamp(1.25rem, 4vw, 1.5rem);     /* 20-24px */
+    --fs-2xl: clamp(1.5rem, 5vw, 1.875rem);   /* 24-30px */
+    --fs-3xl: clamp(2rem, 6vw, 2.5rem);       /* 32-40px */
+    --fs-4xl: clamp(2.5rem, 8vw, 3.5rem);     /* 40-56px */
+    --fs-5xl: clamp(3rem, 10vw, 4.5rem);      /* 48-72px */
 
-    /* Typography Scale (Mobile First) */
-    --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
-    --fs-sm: clamp(0.875rem, 2.5vw, 1rem);
-    --fs-base: clamp(1rem, 3vw, 1.125rem);
-    --fs-lg: clamp(1.125rem, 3.5vw, 1.25rem);
-    --fs-xl: clamp(1.25rem, 4vw, 1.5rem);
-    --fs-2xl: clamp(1.5rem, 5vw, 1.875rem);
-    --fs-3xl: clamp(2rem, 6vw, 2.5rem);
-    --fs-4xl: clamp(2.5rem, 8vw, 3.5rem);
-    --fs-5xl: clamp(3rem, 10vw, 4.5rem);
+    /* ===== BỐ CỤC ===== */
+    --container: 1160px;     /* Chiều rộng tối đa của container */
+    --nav-height: 68px;      /* Chiều cao navbar trên mobile */
 
-    /* Layout */
-    --container: 1160px;
-    --nav-height: 68px;
-    
-    /* Transitions */
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --transition-fast: 180ms var(--ease);
-    --transition: 280ms var(--ease);
-    --transition-slow: 450ms var(--ease);
+    /* ===== HIỆU ỨNG CHUYỂN ĐỘNG ===== */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);  /* Hàm easing mượt mà */
+    --transition-fast: 180ms var(--ease);    /* Chuyển động nhanh */
+    --transition: 280ms var(--ease);         /* Chuyển động vừa */
+    --transition-slow: 450ms var(--ease);    /* Chuyển động chậm */
 }
 
 /* Tablet & Desktop spacing overrides */
 @media (min-width: 768px) {
     :root {
-        --nav-height: 76px;
+        --nav-height: 76px;  /* Tăng chiều cao navbar trên desktop */
     }
 }
