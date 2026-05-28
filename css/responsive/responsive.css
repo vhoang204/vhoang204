@@ -219,3 +219,18 @@ body {
         color: var(--text-muted);
     }
 }
+/* Thêm vào cuối file responsive.css để debug */
+/* FIX BUG TIMELINE TITLE */
+.timeline__title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.timeline__header {
+    overflow: visible !important;
+}

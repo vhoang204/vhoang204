@@ -17,31 +17,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Core CSS Architecture -->
-    <link rel="stylesheet" href="css/base/reset.css">
-    <link rel="stylesheet" href="css/base/variables.css">
-    <link rel="stylesheet" href="css/base/typography.css">
-    <link rel="stylesheet" href="css/base/utilities.css">
-    
-    <link rel="stylesheet" href="css/layout/container.css">
-    <link rel="stylesheet" href="css/layout/grid.css">
-    <link rel="stylesheet" href="css/layout/spacing.css">
-    
-    <link rel="stylesheet" href="css/components/buttons.css">
-    <link rel="stylesheet" href="css/components/cards.css">
-    <link rel="stylesheet" href="css/components/loader.css">
-    <link rel="stylesheet" href="css/components/navbar.css">
-    
-    <link rel="stylesheet" href="css/sections/hero.css">
-    <link rel="stylesheet" href="css/sections/about.css">
-    <link rel="stylesheet" href="css/sections/lifestyle.css">
-    <link rel="stylesheet" href="css/sections/timeline.css">
-    <link rel="stylesheet" href="css/sections/music.css">
-    <link rel="stylesheet" href="css/sections/contact.css">
-    <link rel="stylesheet" href="css/sections/footer.css">
-    
-    <link rel="stylesheet" href="css/animations/animations.css">
-    <link rel="stylesheet" href="css/themes/darkmode.css">
-    <link rel="stylesheet" href="css/responsive/responsive.css">
+    <!-- Core CSS Architecture - ĐÚNG THỨ TỰ -->
+<link rel="stylesheet" href="css/base/variables.css">
+<link rel="stylesheet" href="css/base/reset.css">
+<link rel="stylesheet" href="css/base/typography.css">
+<link rel="stylesheet" href="css/base/utilities.css">
+
+<link rel="stylesheet" href="css/layout/container.css">
+<link rel="stylesheet" href="css/layout/grid.css">
+<link rel="stylesheet" href="css/layout/spacing.css">
+
+<link rel="stylesheet" href="css/components/buttons.css">
+<link rel="stylesheet" href="css/components/cards.css">
+<link rel="stylesheet" href="css/components/loader.css">
+<link rel="stylesheet" href="css/components/navbar.css">  <!-- PHẢI CÓ -->
+
+<link rel="stylesheet" href="css/sections/hero.css">
+<link rel="stylesheet" href="css/sections/about.css">
+<link rel="stylesheet" href="css/sections/lifestyle.css">
+<link rel="stylesheet" href="css/sections/timeline.css">
+<link rel="stylesheet" href="css/sections/music.css">
+<link rel="stylesheet" href="css/sections/contact.css">
+<link rel="stylesheet" href="css/sections/footer.css">
+
+<link rel="stylesheet" href="css/animations/animations.css">
+<link rel="stylesheet" href="css/themes/darkmode.css">
+<link rel="stylesheet" href="css/responsive/responsive.css">
 
 </head>
 <body>
@@ -59,32 +60,33 @@
     </div>
 
     <!-- ===== HEADER / NAVBAR ===== -->
-    <header class="site-header">
-        <nav class="navbar" aria-label="Điều hướng chính">
-            <div class="navbar__container">
-                <a href="#home" class="navbar__logo" aria-label="vhoang home">vhoang</a>
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="site-header">
+    <nav class="navbar" aria-label="Điều hướng chính">
+        <div class="navbar__container">
+            <a href="#home" class="navbar__logo">vhoang</a>
 
-                <ul class="navbar__links" id="mobMenu">
-                    <li class="navbar__link-item"><a href="#about" class="navbar__link">Hoàng</a></li>
-                    <li class="navbar__link-item"><a href="#lifestyle" class="navbar__link">Hoàng Làm</a></li>
-                    <li class="navbar__link-item"><a href="#timeline" class="navbar__link">Hoàng Nhớ</a></li>
-                    <li class="navbar__link-item"><a href="#music" class="navbar__link">Hoàng Nghe</a></li>
-                    <li class="navbar__link-item"><a href="#contact" class="navbar__link">Hoàng Đây</a></li>
-                </ul>
+            <ul class="navbar__links" id="mobMenu">
+                <li><a href="#about" class="navbar__link">Hoàng</a></li>
+                <li><a href="#lifestyle" class="navbar__link">Hoàng Làm</a></li>
+                <li><a href="#timeline" class="navbar__link">Hoàng Nhớ</a></li>
+                <li><a href="#music" class="navbar__link">Hoàng Nghe</a></li>
+                <li><a href="#contact" class="navbar__link">Hoàng Đây</a></li>
+            </ul>
 
-                <div class="navbar__actions" aria-label="Tùy chọn giao diện">
-                    <button id="themeBtn" class="navbar__theme-btn" type="button" aria-label="Đổi giao diện sáng tối">
-                        <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
-                    </button>
-                    <button id="ham" class="navbar__hamburger" type="button" aria-label="Mở menu" aria-controls="mobMenu">
-                        <span class="navbar__hamburger-line" aria-hidden="true"></span>
-                        <span class="navbar__hamburger-line" aria-hidden="true"></span>
-                        <span class="navbar__hamburger-line" aria-hidden="true"></span>
-                    </button>
-                </div>
+            <div class="navbar__actions">
+                <button id="themeBtn" class="navbar__theme-btn" aria-label="Chuyển đổi theme">
+                    <i id="themeIcon" class="fas fa-moon"></i>
+                </button>
+                <button id="ham" class="navbar__hamburger" aria-label="Menu">
+                    <span class="navbar__hamburger-line"></span>
+                    <span class="navbar__hamburger-line"></span>
+                    <span class="navbar__hamburger-line"></span>
+                </button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <main>
         <!-- ===== HERO SECTION ===== -->
@@ -136,24 +138,23 @@
             </div>
         </section>
 
-        <!-- ===== LIFESTYLE SECTION (Barista) ===== -->
+        <!-- ===== LIFESTYLE SECTION (Barista - Công việc) ===== -->
         <section id="lifestyle" class="lifestyle section" aria-labelledby="lifestyle-title">
             <div class="lifestyle__container container">
-                <span class="lifestyle__eyebrow text-center">Công việc</span>
-                <h2 id="lifestyle-title" class="lifestyle__title u-text-center">Barista</h2>
+                <div class="lifestyle__header">
+                    <span class="lifestyle__eyebrow">Công việc</span>
+                    <h2 id="lifestyle-title" class="lifestyle__title">Barista</h2>
+                </div>
 
                 <div class="lifestyle__timeline">
                     <article class="lifestyle__milestone">
-                        <div class="lifestyle__dot" aria-hidden="true"></div>
                         <div class="lifestyle__copy">
                             <p class="lifestyle__content">
-                        Mình thích làm cafe ,
-                        thích uống cafe ,
-                        thích latte art <br>
-                        Mình thích làm nước ngon cho mọi người <br>
-                        MÌnh cảm thấy vui khi được làm ,mình được gặp mọi người ,minh được nói chuyện ,mình được vui vẻ <br>
-                        Mình dường như quên đi hiện thực nghiệt ngã ngoài kia <br>  
-                        không chỉ là 1 công việc mà còn là nớ mình trốn 
+                                Mình yêu cafe, yêu latte art, yêu cảm giác tạo ra những ly nước ngon cho người mình quý.
+                                Pha chế giúp mình được gặp gỡ, được trò chuyện, được sống vui vẻ mỗi ngày.
+                                Với mình, đây không chỉ là công việc – mà là niềm vui, là nơi để mình tạm quên đi
+                                những nghiệt ngã của thực tại.
+                            </p>
                             <div class="lifestyle__tags">
                                 <span class="lifestyle__tag">#CoffeeArtist</span>
                                 <span class="lifestyle__tag">#WorkingMoments</span>
@@ -161,7 +162,6 @@
                             </div>
                         </div>
 
-                        <!-- Slider -->
                         <div class="lifestyle__slider" data-memory-slider>
                             <div class="lifestyle__slider-viewport">
                                 <div class="lifestyle__slider-track">
@@ -190,99 +190,163 @@
             </div>
         </section>
 
-        <!-- ===== TIMELINE SECTION ===== -->
-        <section id="timeline" class="timeline section" aria-labelledby="timeline-title">
-            <div class="timeline__container container">
-               <div class="timeline__header">
-                    <span class="timeline__eyebrow">Hành trình</span>
-                    <h2 id="timeline-title" class="timeline__title">nhớ</h2>
-                </div>
 
-                <div class="timeline__list" data-memory-timeline>
-                    <!-- Milestone 1 - Cấp 3 -->
-                    <article class="timeline__milestone timeline__milestone--cap3 is-active" data-memory-milestone>
-                        <div class="timeline__dot" aria-hidden="true"></div>
-                        <div class="timeline__copy">
-                            <time class="timeline__year" datetime="2024">Cấp 3</time>
-                            <p class="timeline__content">Nhớ mãi 12a5 <span>♥</span></p>
-                            <p class="timeline__content">1000 ngày nắng đẹp nhất của tuổi thanh xuân.</p>
-                        </div>
-                        <div class="timeline__gallery" data-memory-slider>
-                            <div class="timeline__gallery-viewport">
-                                <div class="timeline__gallery-track">
-                                    <figure class="timeline__slide is-active">
-                                        <img class="timeline__img" src="assets/image/cap3/IMG_20220625_072039 (1).jpg" alt="Kỷ niệm cấp 3" loading="lazy">
-                                    </figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/0546f0e83cf1262b99f3e79df88ea5d5_2.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/74410f75b6082e70628df16a81ca7af9_0.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/755ca39f319833340ad1be898f95e7b9_5.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/91b165c011fe3cdba870f9f4641427da_7.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/bb2ea49c9ec66a632dcaea64b85b20b1_8.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/cap3/e7fa60cc87518b5ad70e14d32a8c3cdc_1.jpeg" alt="Kỷ niệm cấp 3" loading="lazy"></figure>
-                                </div>
-                            </div>
-                            <div class="timeline__gallery-controls">
-                                <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button"><i class="fa-solid fa-arrow-left"></i></button>
-                                <span class="timeline__gallery-count">1 / 7</span>
-                                <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button"><i class="fa-solid fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Milestone 2 - Bạn bè -->
-                    <article class="timeline__milestone timeline__milestone--friends" data-memory-milestone>                        <div class="timeline__dot" aria-hidden="true"></div>
-                        <div class="timeline__copy">
-                            <h3 class="timeline__milestone-title">Các con vợ của anh</h3>
-                            <p class="timeline__content">Cảm ơn mọi người đã xuất hiện làm cho thanh xuân của Hoàng rực rỡ hơn rất nhiều.</p>
-                        </div>
-                        <div class="timeline__gallery" data-memory-slider>
-                            <div class="timeline__gallery-viewport">
-                                <div class="timeline__gallery-track">
-                                    <figure class="timeline__slide is-active"><img class="timeline__img" src="assets/image/2025/White and Beige Torn Paper Aesthetic Photo Collage Instagram Post (6).png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/2025/moka (2).png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/2025/quansu2.png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/2025/VietNam Express marathon 2025.png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/2025/máy dập.png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/2025/2024.png" alt="Kỷ niệm 2025" loading="lazy"></figure>
-                                </div>
-                            </div>
-                            <div class="timeline__gallery-controls">
-                                <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button"><i class="fa-solid fa-arrow-left"></i></button>
-                                <span class="timeline__gallery-count">1 / 6</span>
-                                <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button"><i class="fa-solid fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Milestone 3 - Gia đình -->
-                    <article class="timeline__milestone timeline__milestone--family" data-memory-milestone>
-                        <div class="timeline__dot" aria-hidden="true"></div>
-                        <div class="timeline__copy">
-                            <h3 class="timeline__milestone-title">Gia đình</h3>
-                            <p class="timeline__content">Nơi có mẹ đang chờ, nơi có những bữa cơm ngon những giấc ngủ thật ngon, nơi tư bản cũng chỉ là cái tên</p>
-                        </div>
-                        <div class="timeline__gallery" data-memory-slider>
-                            <div class="timeline__gallery-viewport">
-                                <div class="timeline__gallery-track">
-                                    <figure class="timeline__slide is-active"><img class="timeline__img" src="assets/image/giadinh/nho.png" alt="Gia đình" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/giadinh/IMG_5717.jpeg" alt="Gia đình" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/giadinh/chị bé.jpg" alt="Gia đình" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/giadinh/IMG_20251210_003058.jpg" alt="Gia đình" loading="lazy"></figure>
-                                    <figure class="timeline__slide"><img class="timeline__img" src="assets/image/giadinh/IMG_20250111_231530.jpg" alt="Gia đình" loading="lazy"></figure>
-                                                                        <figure class="timeline__slide"><img class="timeline__img" src="assets/image/giadinh/4645657b-0aa3-439e-b932-7083a210def0.jpg" alt="Gia đình" loading="lazy"></figure>
 
-                                </div>
-                            </div>
-                            <div class="timeline__gallery-controls">
-                                <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button"><i class="fa-solid fa-arrow-left"></i></button>
-                                <span class="timeline__gallery-count">1 / 5</span>
-                                <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button"><i class="fa-solid fa-arrow-right"></i></button>
+<section id="timeline" class="timeline section" aria-labelledby="timeline-title">
+    <div class="timeline__container container">
+        <div class="timeline__header">
+            <span class="timeline__eyebrow">Hành trình</span>
+            <h2 id="timeline-title" class="timeline__title">nhớ</h2>
+        </div>
+
+        <!-- Track chứa các milestone -->
+        <div class="timeline__list">
+            <div class="timeline__track">
+                
+                <!-- Milestone 1 - Cấp 3 -->
+                <article class="timeline__milestone is-active" data-memory-milestone>
+                    <div class="timeline__copy">
+                        <time class="timeline__year" datetime="2024">Cấp 3</time>
+                        <p class="timeline__content">Nhớ mãi 12a5 <span>♥</span></p>
+                        <p class="timeline__content">1000 ngày nắng đẹp nhất của tuổi thanh xuân.</p>
+                    </div>
+                    <div class="timeline__gallery" data-memory-slider>
+                        <div class="timeline__gallery-viewport">
+                            <div class="timeline__gallery-track">
+                                <figure class="timeline__slide is-active">
+                                    <img class="timeline__img" src="assets/image/cap3/IMG_20220625_072039 (1).jpg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/0546f0e83cf1262b99f3e79df88ea5d5_2.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/74410f75b6082e70628df16a81ca7af9_0.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/755ca39f319833340ad1be898f95e7b9_5.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/91b165c011fe3cdba870f9f4641427da_7.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/bb2ea49c9ec66a632dcaea64b85b20b1_8.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/cap3/e7fa60cc87518b5ad70e14d32a8c3cdc_1.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                </figure>
                             </div>
                         </div>
-                    </article>
-                </div>
+                        <div class="timeline__gallery-controls">
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <span class="timeline__gallery-count">1 / 7</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Milestone 2 - Bạn bè -->
+                <article class="timeline__milestone" data-memory-milestone>
+                    <div class="timeline__copy">
+                        <h3 class="timeline__milestone-title">Các con vợ của anh</h3>
+                        <p class="timeline__content">Cảm ơn mọi người đã xuất hiện làm cho thanh xuân của Hoàng rực rỡ hơn rất nhiều.</p>
+                    </div>
+                    <div class="timeline__gallery" data-memory-slider>
+                        <div class="timeline__gallery-viewport">
+                            <div class="timeline__gallery-track">
+                                <figure class="timeline__slide is-active">
+                                    <img class="timeline__img" src="assets/image/2025/White and Beige Torn Paper Aesthetic Photo Collage Instagram Post (6).png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/2025/moka (2).png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/2025/quansu2.png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/2025/VietNam Express marathon 2025.png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/2025/máy dập.png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/2025/2024.png" alt="Kỷ niệm 2025" loading="lazy">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="timeline__gallery-controls">
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <span class="timeline__gallery-count">1 / 6</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Milestone 3 - Gia đình -->
+                <article class="timeline__milestone" data-memory-milestone>
+                    <div class="timeline__copy">
+                        <h3 class="timeline__milestone-title">Gia đình</h3>
+                        <p class="timeline__content">Nơi có mẹ đang chờ, nơi có những bữa cơm ngon những giấc ngủ thật ngon, nơi tư bản cũng chỉ là cái tên</p>
+                    </div>
+                    <div class="timeline__gallery" data-memory-slider>
+                        <div class="timeline__gallery-viewport">
+                            <div class="timeline__gallery-track">
+                                <figure class="timeline__slide is-active">
+                                    <img class="timeline__img" src="assets/image/giadinh/nho.png" alt="Gia đình" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_5717.jpeg" alt="Gia đình" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/giadinh/chị bé.jpg" alt="Gia đình" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20251210_003058.jpg" alt="Gia đình" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20250111_231530.jpg" alt="Gia đình" loading="lazy">
+                                </figure>
+                                <figure class="timeline__slide">
+                                    <img class="timeline__img" src="assets/image/giadinh/4645657b-0aa3-439e-b932-7083a210def0.jpg" alt="Gia đình" loading="lazy">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="timeline__gallery-controls">
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <span class="timeline__gallery-count">1 / 6</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
             </div>
-        </section>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="timeline__controls">
+            <button class="timeline__prev" type="button" aria-label="Previous">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="timeline__dots"></div>
+            <button class="timeline__next" type="button" aria-label="Next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
 
         <!-- ===== MUSIC SECTION ===== -->
         <section id="music" class="music section" aria-labelledby="music-title">

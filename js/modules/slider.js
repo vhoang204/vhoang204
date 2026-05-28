@@ -1,6 +1,7 @@
 /**
  * Slider Module
  * Handles memory gallery sliders with touch/swipe support
+ * (Gallery bên trong mỗi milestone - giữ nguyên)
  */
 
 export function initSliders() {
@@ -47,11 +48,19 @@ export function initSliders() {
         }
         
         // Navigation handlers
-        prevBtn?.addEventListener('click', () => updateSlider(currentIndex - 1));
-        nextBtn?.addEventListener('click', () => updateSlider(currentIndex + 1));
+        prevBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();  // Ngăn chặn sự kiện bubble lên timeline slider
+            updateSlider(currentIndex - 1);
+        });
+        
+        nextBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();  // Ngăn chặn sự kiện bubble lên timeline slider
+            updateSlider(currentIndex + 1);
+        });
         
         // Keyboard navigation
         viewport.addEventListener('keydown', (e) => {
+            e.stopPropagation();  // Ngăn chặn sự kiện bubble lên timeline slider
             if (e.key === 'ArrowLeft') {
                 e.preventDefault();
                 updateSlider(currentIndex - 1);

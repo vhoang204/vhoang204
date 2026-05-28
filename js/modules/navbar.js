@@ -8,10 +8,8 @@ export function initNavbar() {
     const hamburger = document.getElementById('ham');
     const mobileMenu = document.getElementById('mobMenu');
     const navLinks = document.querySelectorAll('.navbar__link');
-    const sections = document.querySelectorAll('section[id]');
     
     let menuOpen = false;
-    let ticking = false;
     
     // Toggle mobile menu
     function toggleMenu(open) {
@@ -24,105 +22,69 @@ export function initNavbar() {
         document.body.style.overflow = open ? 'hidden' : '';
     }
     
-    // Close menu
-    function closeMenu() {
-        if (menuOpen) toggleMenu(false);
-    }
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (menuOpen) toggleMenu(false);
+        });
+    });
     
-    // Event listeners
+    // Hamburger click
     hamburger?.addEventListener('click', (e) => {
         e.stopPropagation();
         toggleMenu(!menuOpen);
     });
     
-    mobileMenu?.addEventListener('click', (e) => {
-        if (e.target.closest('.navbar__link')) closeMenu();
-    });
-    
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (menuOpen && !hamburger?.contains(e.target) && !mobileMenu?.contains(e.target)) {
-            closeMenu();
+            toggleMenu(false);
         }
     });
     
+    // Close menu on ESC key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && menuOpen) {
-            closeMenu();
-            hamburger?.focus();
+            toggleMenu(false);
         }
     });
     
+    // Close menu on window resize (if screen becomes desktop)
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 900 && menuOpen) closeMenu();
+        if (window.innerWidth > 768 && menuOpen) {
+            toggleMenu(false);
+        }
     });
     
-    // Scroll state for navbar background
+    // Navbar scroll effect
     function updateNavbarScroll() {
         if (!navbar) return;
-        const isScrolled = window.scrollY > 28;
-        navbar.classList.toggle('navbar--scrolled', isScrolled);
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar--scrolled');
+        } else {
+            navbar.classList.remove('navbar--scrolled');
+        }
     }
     
-    window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-            updateNavbarScroll();
-            ticking = false;
-        });
-    }, { passive: true });
-    
+    window.addEventListener('scroll', updateNavbarScroll);
     updateNavbarScroll();
     
     // Active link tracking
-    if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
-        const linkMap = new Map();
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href')?.slice(1);
-            if (href) linkMap.set(href, link);
-        });
-        
-        const setActiveLink = (id) => {
-            navLinks.forEach(link => {
-                const isActive = link === linkMap.get(id);
-                link.classList.toggle('navbar__link--active', isActive);
-                if (isActive) link.setAttribute('aria-current', 'page');
-                else link.removeAttribute('aria-current');
-            });
-        };
-        
+    const sections = document.querySelectorAll('section[id]');
+    
+    if (sections.length && navLinks.length) {
         const observer = new IntersectionObserver((entries) => {
-            const visible = entries
-                .filter(entry => entry.isIntersecting)
-                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-            
-            if (visible) setActiveLink(visible.target.id);
-        }, {
-            threshold: [0.2, 0.45, 0.7],
-            rootMargin: '-22% 0px -58% 0px'
-        });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href')?.slice(1);
+                        link.classList.toggle('navbar__link--active', href === id);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
         
         sections.forEach(section => observer.observe(section));
     }
-    
-    // Smooth scroll for anchor links
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (!href || href === '#') return;
-            
-            const target = document.querySelector(href);
-            if (!target) return;
-            
-            e.preventDefault();
-            closeMenu();
-            
-            target.scrollIntoView({
-                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-                block: 'start'
-            });
-            
-            history.pushState(null, '', href);
-        });
-    });
 }

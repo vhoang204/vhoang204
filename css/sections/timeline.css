@@ -1,10 +1,9 @@
 /* =============================================
-   TIMELINE SECTION - Custom per milestone
-   Mỗi milestone có kích thước ảnh riêng
+   TIMELINE SECTION - 3 cột trên desktop
    ============================================= */
 
 .timeline__container {
-    max-width: 900px;
+    max-width: 1200px;
     margin-inline: auto;
 }
 
@@ -15,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-xs);
+    margin-bottom: var(--space-xl);
 }
 
 .timeline__eyebrow {
@@ -23,29 +23,37 @@
     font-size: var(--fs-xs);
     font-weight: 500;
     letter-spacing: 0.24em;
-    line-height: 1.3;
     text-transform: uppercase;
-    margin-bottom: var(--space-xs);
 }
 
 .timeline__title {
     font-size: var(--fs-4xl);
-    margin-bottom: 8px;
+    margin-bottom: 0;
     color: var(--text-main);
 }
 
-/* List styles */
+/* ===== SLIDER CONTAINER ===== */
 .timeline__list {
     position: relative;
+    overflow: hidden;
     margin-block: var(--space-xl);
 }
 
+/* Track chứa các milestone - chuyển thành horizontal scroll */
+.timeline__track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.45s var(--ease);
+}
+
+/* Mỗi milestone chiếm 1/3 chiều rộng trên desktop */
 .timeline__milestone {
+    flex: 0 0 calc(33.333% - 16px);  /* 3 cột, trừ đi gap */
     position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    margin-bottom: var(--space-xl);
+    margin-bottom: 0;
     padding: var(--space-md);
     border-radius: var(--radius-lg);
     background: linear-gradient(145deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 88%, transparent));
@@ -63,8 +71,59 @@
     border-left: 3px solid var(--primary);
 }
 
+/* ===== SLIDER CONTROLS (nút điều hướng) ===== */
+.timeline__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.timeline__prev,
+.timeline__next {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    background: var(--primary-soft);
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline__prev:hover,
+.timeline__next:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--primary) 32%, transparent);
+    border-color: var(--primary);
+}
+
+.timeline__dots {
+    display: flex;
+    gap: 12px;
+}
+
 .timeline__dot {
-    display: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--card-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline__dot--active {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+/* ===== NỘI DUNG BÊN TRONG MILESTONE ===== */
+.timeline__dot {
+    display: none;  /* Ẩn dấu chấm cũ */
 }
 
 .timeline__copy {
@@ -91,10 +150,7 @@
     line-height: 1.8;
 }
 
-/* =============================================
-   GALLERY SLIDER - Base styles
-   ============================================= */
-
+/* Gallery Slider bên trong mỗi milestone (giữ nguyên) */
 .timeline__gallery {
     width: 100%;
 }
@@ -119,9 +175,9 @@
     align-items: center;
 }
 
-/* Base image styles */
 .timeline__img {
     width: 100%;
+    height: auto;
     display: block;
     border-radius: var(--radius);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
@@ -133,35 +189,6 @@
     filter: brightness(1.03);
 }
 
-/* =============================================
-   CUSTOM PER MILESTONE
-   Mỗi milestone có tỷ lệ ảnh riêng
-   ============================================= */
-
-/* Milestone 1 - Cấp 3 (ảnh vuông) */
-.timeline__milestone--cap3 .timeline__img {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-}
-
-/* Milestone 2 - Bạn bè (ảnh chân dung 4:5) */
-.timeline__milestone--friends .timeline__img {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Milestone 3 - Gia đình (ảnh ngang 16:9) */
-.timeline__milestone--family .timeline__img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* =============================================
-   CONTROLS
-   ============================================= */
-
 .timeline__gallery-controls {
     display: flex;
     justify-content: center;
@@ -171,8 +198,8 @@
 }
 
 .timeline__gallery-nav {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 1px solid var(--card-border);
     background: var(--primary-soft);
@@ -196,59 +223,38 @@
    RESPONSIVE
    ============================================= */
 
-@media (min-width: 768px) {
+/* Desktop: 3 cột */
+@media (min-width: 992px) {
     .timeline__milestone {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .timeline__copy {
-        flex: 1;
-    }
-
-    .timeline__gallery {
-        flex: 1.2;
+        flex: 0 0 calc(33.333% - 16px);
     }
 }
 
-@media (max-width: 640px) {
-    .timeline__gallery-nav {
-        width: 36px;
-        height: 36px;
-    }
-    
-    /* Trên mobile có thể điều chỉnh lại tỷ lệ cho từng milestone */
-    .timeline__milestone--cap3 .timeline__img {
-        aspect-ratio: 3 / 4 ;
-    }
-    
-    .timeline__milestone--friends .timeline__img {
-        aspect-ratio: 2 / 3;
-    }
-    
-    .timeline__milestone--family .timeline__img {
-        aspect-ratio: 2 / 3 ;
+/* Tablet: 2 cột */
+@media (min-width: 768px) and (max-width: 991px) {
+    .timeline__milestone {
+        flex: 0 0 calc(50% - 12px);
     }
 }
-/* Thêm vào cuối file timeline.css */
 
-/* Điều chỉnh ảnh trên mobile - giống ảnh của bạn */
-@media (max-width: 768px) {
-    .timeline__gallery-viewport {
-        border-radius: 20px;
+/* Mobile: 1 cột, cuộn dọc bình thường */
+@media (max-width: 767px) {
+    .timeline__track {
+        flex-direction: column;
+        gap: 24px;
     }
     
-    .timeline__img {
+    .timeline__milestone {
+        flex: 0 0 auto;
         width: 100%;
-        height: auto;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-        border-radius: 20px;
     }
-}
-
-@media (max-width: 480px) {
-    .timeline__img {
-        aspect-ratio: 4 / 5;
+    
+    .timeline__controls {
+        display: none;  /* Ẩn nút điều hướng trên mobile */
+    }
+    
+    .timeline__gallery-nav {
+        width: 34px;
+        height: 34px;
     }
 }
