@@ -1,7 +1,10 @@
 /* =============================================
    TIMELINE SECTION - 3 cột trên desktop
    ============================================= */
-
+.timeline {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .timeline__container {
     max-width: 1200px;
     margin-inline: auto;
@@ -42,7 +45,7 @@
 /* Track chứa các milestone - chuyển thành horizontal scroll */
 .timeline__track {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     transition: transform 0.45s var(--ease);
 }
 
@@ -55,7 +58,7 @@
     gap: var(--space-md);
     margin-bottom: 0;
     padding: var(--space-md);
-    border-radius: var(--radius-lg);
+    border-radius: 15px;
     background: linear-gradient(145deg, color-mix(in srgb, var(--surface-strong) 92%, transparent), color-mix(in srgb, var(--surface) 88%, transparent));
     border: 1px solid color-mix(in srgb, var(--card-border) 72%, transparent);
     box-shadow: var(--shadow-sm);

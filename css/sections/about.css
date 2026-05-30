@@ -54,6 +54,7 @@
     box-shadow: var(--shadow-sm);
     backdrop-filter: blur(14px);
     transition: transform var(--transition), box-shadow var(--transition);
+    text-align: center;
 }
 
 .about__info-cell:hover {
@@ -78,6 +79,10 @@
     font-weight: 400;
     text-align: center;
 }
+[data-theme="dark"] .about__info-cell {
+    background: #2a1e17;
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {

@@ -10,7 +10,9 @@
     padding-top: var(--nav-height);
     overflow: hidden;
 }
-
+.hero {
+    padding-bottom: 20px;  /* Giảm khoảng cách dưới hero */
+}
 /* Cinematic background elements */
 .hero::before {
     content: '';

@@ -5,9 +5,12 @@
 .lifestyle__container {
     max-width: 1600px;  /* Tăng từ 1100px lên 1400px */
     margin-inline: auto;
-    padding-inline: 60px;  /* Tăng padding 2 bên */
+    padding-inline: 80px;  /* Tăng padding 2 bên */
 }
-
+.lifestyle {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 /* Header */
 .lifestyle__header {
     text-align: center;
@@ -39,7 +42,7 @@
     align-items: center;
     gap: 60px;  /* Tăng khoảng cách giữa chữ và ảnh */
     background: var(--surface);
-    border-radius: 32px;
+    border-radius: 16px;
     padding: 48px 56px;  /* Tăng padding trong khung */
     border: 1px solid var(--card-border);
     backdrop-filter: blur(10px);
@@ -106,9 +109,10 @@
 .lifestyle__video,
 .lifestyle__img {
     width: 100%;
-    aspect-ratio: 16 / 10;  /* Hơi rộng hơn một chút */
+    aspect-ratio: 16 / 11;  /* Hơi rộng hơn một chút */
     object-fit: cover;
     display: block;
+    border-radius: 12px;  
 }
 
 /* Slider controls */
