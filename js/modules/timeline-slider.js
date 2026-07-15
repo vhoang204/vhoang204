@@ -71,9 +71,23 @@ export function initTimelineSlider() {
         if (index >= totalSlides) index = totalSlides - 1;
         
         currentIndex = index;
-        const translateX = -currentIndex * 100;
-        track.style.transform = `translateX(${translateX}%)`;
+
+        // Translate theo kích thước thật của 1 “viewport” để tránh lệch khi resize/breakpoint
+        const milestone = milestones[0];
+        const slideWidthPx = milestone?.getBoundingClientRect().width ?? 0;
+        const gap = 20; // phải khớp với gap trong timeline.css
+        const stepPx = slidesPerView * slideWidthPx + (slidesPerView - 1) * gap;
+
+        // fallback nếu chưa đo được
+        if (stepPx > 0) {
+            track.style.transform = `translateX(${-currentIndex * stepPx}px)`;
+        } else {
+            const translateX = -currentIndex * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+        }
+
         updateDots();
+
         
         // Cập nhật aria labels cho accessibility
         updateAriaLabels();
