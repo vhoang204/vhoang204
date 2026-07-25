@@ -7,18 +7,16 @@
     min-height: 82svh;
     display: flex;
     align-items: center;
-    padding-top: var(--nav-height);
+    padding-top: calc(var(--nav-height) + clamp(2rem, 5vw, 4rem));
+    padding-bottom: clamp(3rem, 7vw, 5rem);
     overflow: hidden;
 }
-.hero {
-    padding-bottom: 20px;  /* Giảm khoảng cách dưới hero */
-}
-/* Cinematic background elements */
+
 .hero::before {
     content: '';
     position: absolute;
     inset: 14% auto auto -7rem;
-    width: 24rem;
+    width: clamp(15rem, 28vw, 24rem);
     aspect-ratio: 1;
     border: 1px solid var(--card-border);
     border-radius: 50%;
@@ -45,7 +43,7 @@
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.78fr);
     align-items: center;
-    gap: clamp(1.5rem, 4vw, 3rem);
+    gap: clamp(2rem, 5vw, 4rem);
 }
 
 .hero__content {
@@ -57,7 +55,7 @@
     margin-bottom: var(--space-sm);
     color: var(--primary);
     font-size: var(--fs-xs);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.24em;
     line-height: 1.3;
     text-transform: uppercase;
@@ -74,7 +72,7 @@
 }
 
 .hero__typed-area {
-    min-height: 2.3rem;
+    min-height: clamp(2.75rem, 8vw, 6rem);
     margin-bottom: var(--space-md);
 }
 
@@ -112,6 +110,7 @@
 .hero__figure {
     justify-self: end;
     width: min(100%, 440px);
+    contain: layout paint;
 }
 
 .hero__image {
@@ -123,15 +122,19 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-hover);
     transform: rotate(1.2deg);
-    transition: transform var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .hero__image:hover {
     transform: rotate(0deg) scale(1.01);
+    box-shadow: var(--shadow);
 }
 
-/* Responsive */
 @media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+    }
+
     .hero__layout {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -155,5 +158,20 @@
 
     .hero__image {
         transform: rotate(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: calc(var(--nav-height) + 1.5rem);
+    }
+
+    .hero__figure {
+        width: min(82vw, 320px);
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+        justify-content: center;
     }
 }

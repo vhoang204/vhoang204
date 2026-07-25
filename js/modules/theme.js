@@ -28,6 +28,7 @@ export function initTheme() {
         
         if (themeIcon) {
             themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            themeIcon.setAttribute('aria-hidden', 'true');
         }
         
         if (themeBtn) {

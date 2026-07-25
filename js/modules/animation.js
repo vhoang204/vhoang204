@@ -33,7 +33,7 @@ export function initTypingEffect() {
     const typedElement = document.getElementById('typed');
     if (!typedElement) return;
     
-    const roles = ['IT Student', 'Barista', 'Music Lover', 'Photographer', 'Digital Creator'];
+    const roles = ['IT Student', 'Barista', 'Music Lover' ,'Friends'];
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {

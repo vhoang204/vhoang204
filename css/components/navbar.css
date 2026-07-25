@@ -10,8 +10,8 @@
     z-index: 1000;
     background: var(--nav-bg);
     backdrop-filter: blur(18px) saturate(150%);
-    border-bottom: 1px solid var(--card-border);
-    transition: all 0.3s ease;
+    border-bottom: 1px solid color-mix(in srgb, var(--card-border), transparent 25%);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar--scrolled {
@@ -21,7 +21,7 @@
 .navbar__container {
     max-width: var(--container);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(1rem, 4vw, 2rem);
     min-height: var(--nav-height);
     display: flex;
     align-items: center;
@@ -29,7 +29,6 @@
     gap: 20px;
 }
 
-/* Logo */
 .navbar__logo {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -37,18 +36,17 @@
     color: var(--text-main);
     text-decoration: none;
     letter-spacing: -0.02em;
-    transition: opacity 0.3s ease;
+    transition: color 0.25s ease, opacity 0.25s ease;
 }
 
 .navbar__logo:hover {
-    opacity: 0.8;
+    color: var(--primary);
 }
 
-/* Navigation Links - Desktop */
 .navbar__links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(1.25rem, 3vw, 2rem);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -58,16 +56,13 @@
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.02em;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
     position: relative;
 }
 
-.navbar__link:hover {
-    color: var(--primary);
-}
-
+.navbar__link:hover,
 .navbar__link--active {
     color: var(--primary);
 }
@@ -84,7 +79,6 @@
     border-radius: 2px;
 }
 
-/* Actions (Theme Toggle + Hamburger) */
 .navbar__actions {
     display: flex;
     align-items: center;
@@ -96,37 +90,42 @@
     height: 40px;
     border-radius: 50%;
     border: 1px solid var(--card-border);
-    background: transparent;
+    background: color-mix(in srgb, var(--surface), transparent 45%);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
     color: var(--text-main);
 }
 
 .navbar__theme-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
+    transform: translateY(-1px);
 }
 
-/* Hamburger Menu (Mobile) */
 .navbar__hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    background: none;
-    border: none;
+    background: color-mix(in srgb, var(--surface), transparent 45%);
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
     cursor: pointer;
-    padding: 8px;
+    padding: 9px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar__hamburger-line {
-    width: 24px;
+    width: 18px;
     height: 2px;
     background: var(--text-main);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
 .navbar__hamburger--open .navbar__hamburger-line:nth-child(1) {
@@ -141,34 +140,57 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ===== RESPONSIVE MOBILE ===== */
+.is-menu-open {
+    overflow: hidden;
+}
+
 @media (max-width: 768px) {
     .navbar__hamburger {
         display: flex;
     }
-    
+
     .navbar__links {
         position: fixed;
         top: var(--nav-height);
-        left: 0;
-        right: 0;
+        left: 12px;
+        right: 12px;
         background: var(--nav-bg);
-        backdrop-filter: blur(18px);
+        backdrop-filter: blur(18px) saturate(150%);
         flex-direction: column;
-        gap: 24px;
-        padding: 40px 20px;
-        transform: translateY(-120%);
-        transition: transform 0.3s ease;
+        align-items: stretch;
+        gap: 8px;
+        padding: 16px;
+        transform: translateY(-130%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transition: transform 0.28s var(--ease), opacity 0.28s ease, visibility 0.28s ease;
         z-index: 999;
-        border-bottom: 1px solid var(--card-border);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
     }
-    
+
     .navbar__links--open {
-        transform: translateY(0);
+        transform: translateY(10px);
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
     }
-    
+
     .navbar__link {
-        font-size: 1.1rem;
-        padding: 8px 0;
+        display: block;
+        font-size: 1rem;
+        padding: 12px 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .navbar__link:hover,
+    .navbar__link--active {
+        background: var(--primary-soft);
+    }
+
+    .navbar__link--active::after {
+        display: none;
     }
 }

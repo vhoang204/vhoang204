@@ -12,15 +12,16 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-height) + 24px);
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    text-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
     line-height: 1.5;
-    background: var(--bg-main);  /* ĐÃ SỬA - dùng biến từ variables.css */
+    background: var(--bg-main);
 }
 
 img,
@@ -32,11 +33,21 @@ svg {
     max-width: 100%;
 }
 
+img,
+video {
+    height: auto;
+}
+
 input,
 button,
 textarea,
 select {
     font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 p,
@@ -59,12 +70,17 @@ ol {
     list-style: none;
 }
 
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
         scroll-behavior: auto;
     }
-    
+
     *,
     *::before,
     *::after {

@@ -9,15 +9,15 @@
     <!-- Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+    <link rel="preload" as="image" href="assets/Anh1.png" fetchpriority="high">
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Core CSS Architecture -->
-    <!-- Core CSS Architecture - ĐÚNG THỨ TỰ -->
 <link rel="stylesheet" href="css/base/variables.css">
 <link rel="stylesheet" href="css/base/reset.css">
 <link rel="stylesheet" href="css/base/typography.css">
@@ -64,7 +64,7 @@
 <header class="site-header">
     <nav class="navbar" aria-label="Điều hướng chính">
         <div class="navbar__container">
-            <a href="#home" class="navbar__logo">vhoang</a>
+            <a href="#home" class="navbar__logo" aria-label="Về đầu trang">vhoang</a>
 
             <ul class="navbar__links" id="mobMenu">
                 <li><a href="#about" class="navbar__link">Hoàng</a></li>
@@ -75,10 +75,10 @@
             </ul>
 
             <div class="navbar__actions">
-                <button id="themeBtn" class="navbar__theme-btn" aria-label="Chuyển đổi theme">
-                    <i id="themeIcon" class="fas fa-moon"></i>
+                <button id="themeBtn" class="navbar__theme-btn" type="button" aria-label="Chuyển đổi theme" aria-pressed="false">
+                    <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
                 </button>
-                <button id="ham" class="navbar__hamburger" aria-label="Menu">
+                <button id="ham" class="navbar__hamburger" type="button" aria-label="Mở menu" aria-controls="mobMenu" aria-expanded="false">
                     <span class="navbar__hamburger-line"></span>
                     <span class="navbar__hamburger-line"></span>
                     <span class="navbar__hamburger-line"></span>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <figure class="hero__figure">
-                    <img class="hero__image" src="assets/Anh1.png" alt="Chân dung Nguyễn Việt Hoàng" width=100% height=100% fetchpriority="high">
+                    <img class="hero__image" src="assets/image/avatar/Anh1.png" alt="Chân dung Nguyễn Việt Hoàng" width="900" height="1200" fetchpriority="high" decoding="async">
                 </figure>
             </div>
         </section>
@@ -114,7 +114,7 @@
                     <span class="about__eyebrow">Về mình</span>
                     <h2 id="about-title" class="about__title">Nguyễn Việt Hoàng</h2>
                     <p class="about__desc">
-                        Nữa là đứa trẻ chưa kíp lớn<br>
+                        Nữa là đứa trẻ chưa kịp lớn<br>
                         Nữa là người lớn chưa kịp cứng cáp<br>
                         Mình thích cảm giác làm 1 người vô danh trong thành phố xa lạ.
                     </p>
@@ -166,22 +166,22 @@
                             <div class="lifestyle__slider-viewport">
                                 <div class="lifestyle__slider-track">
                                     <figure class="lifestyle__slide is-active">
-                                        <video class="lifestyle__video" autoplay muted loop playsinline>
-                                            <source src="assets/image/hoang/phache.mp4" type="video/mp4">
+                                        <video class="lifestyle__video" autoplay muted loop playsinline preload="metadata" aria-label="Khoảnh khắc pha chế cà phê của Hoàng">
+                                            <source src="assets/image/work/OACC4624.MOV" type="video/mp4">
                                         </video>
                                     </figure>
                                     <figure class="lifestyle__slide">
-                                        <img class="lifestyle__img" src="assets/image/hoang/ChatGPT Image 15_07_37 26 thg 5, 2026.png" alt="Barista lifestyle" loading="lazy">
+                                        <img class="lifestyle__img" src="assets/image/work/ChatGPT Image 15_07_37 26 thg 5, 2026.png" alt="Khoảnh khắc barista của Hoàng" loading="lazy" decoding="async">
                                     </figure>
                                 </div>
                             </div>
                             <div class="lifestyle__slider-controls">
-                                <button class="lifestyle__slider-nav lifestyle__slider-nav--prev" type="button">
-                                    <i class="fa-solid fa-arrow-left"></i>
+                                <button class="lifestyle__slider-nav lifestyle__slider-nav--prev" type="button" aria-label="Ảnh trước trong phần Barista">
+                                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                                 </button>
-                                <span class="lifestyle__slider-count">1 / 2</span>
-                                <button class="lifestyle__slider-nav lifestyle__slider-nav--next" type="button">
-                                    <i class="fa-solid fa-arrow-right"></i>
+                                <span class="lifestyle__slider-count" aria-live="polite">1 / 2</span>
+                                <button class="lifestyle__slider-nav lifestyle__slider-nav--next" type="button" aria-label="Ảnh tiếp theo trong phần Barista">
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -216,33 +216,33 @@
                         <div class="timeline__gallery-viewport">
                             <div class="timeline__gallery-track">
                                 <figure class="timeline__slide is-active">
-                                    <img class="timeline__img" src="assets/image/cap3/IMG_20220625_072039 (1).jpg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/IMG_20220625_072039 (1).jpg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/cap3/0546f0e83cf1262b99f3e79df88ea5d5_2.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/0546f0e83cf1262b99f3e79df88ea5d5_2.jpeg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/cap3/74410f75b6082e70628df16a81ca7af9_0.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/74410f75b6082e70628df16a81ca7af9_0.jpeg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/cap3/755ca39f319833340ad1be898f95e7b9_5.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/755ca39f319833340ad1be898f95e7b9_5.jpeg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                                 
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/cap3/bb2ea49c9ec66a632dcaea64b85b20b1_8.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/bb2ea49c9ec66a632dcaea64b85b20b1_8.jpeg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/cap3/e7fa60cc87518b5ad70e14d32a8c3cdc_1.jpeg" alt="Kỷ niệm cấp 3" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/cap3/e7fa60cc87518b5ad70e14d32a8c3cdc_1.jpeg" alt="Kỷ niệm cấp 3" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                         </div>
                         <div class="timeline__gallery-controls">
-                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
-                                <i class="fa-solid fa-arrow-left"></i>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button" aria-label="Ảnh trước trong kỷ niệm cấp 3">
+                                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                             </button>
-                            <span class="timeline__gallery-count">1 / 7</span>
-                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
-                                <i class="fa-solid fa-arrow-right"></i>
+                            <span class="timeline__gallery-count" aria-live="polite">1 / 7</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button" aria-label="Ảnh tiếp theo trong kỷ niệm cấp 3">
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -258,32 +258,32 @@
                         <div class="timeline__gallery-viewport">
                             <div class="timeline__gallery-track">
                                 <figure class="timeline__slide is-active">
-                                    <img class="timeline__img" src="assets/image/2025/White and Beige Torn Paper Aesthetic Photo Collage Instagram Post (6).png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/White and Beige Torn Paper Aesthetic Photo Collage Instagram Post (6).png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/2025/moka (2).png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/moka (2).png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/2025/quansu2.png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/quansu2.png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/2025/VietNam Express marathon 2025.png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/VietNam Express marathon 2025.png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/2025/máy dập.png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/máy dập.png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/2025/2024.png" alt="Kỷ niệm 2025" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/friends/2024.png" alt="Kỷ niệm 2025" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                         </div>
                         <div class="timeline__gallery-controls">
-                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
-                                <i class="fa-solid fa-arrow-left"></i>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button" aria-label="Ảnh trước trong kỷ niệm 2025">
+                                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                             </button>
-                            <span class="timeline__gallery-count">1 / 6</span>
-                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
-                                <i class="fa-solid fa-arrow-right"></i>
+                            <span class="timeline__gallery-count" aria-live="polite">1 / 6</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button" aria-label="Ảnh tiếp theo trong kỷ niệm 2025">
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -301,39 +301,39 @@
                         <div class="timeline__gallery-viewport">
                             <div class="timeline__gallery-track">
                                 <figure class="timeline__slide is-active">
-                                    <img class="timeline__img" src="assets/image/giadinh/nho.png" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/nho.png" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/IMG_5717.jpeg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_5717.jpeg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/chị bé.jpg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/chị bé.jpg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20251210_003058.jpg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20251210_003058.jpg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/ChatGPT Image 15_05_49 30 thg 5, 2026.png" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/ChatGPT Image 15_05_49 30 thg 5, 2026.png" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/IMG20231224081115.jpg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG20231224081115.jpg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20250111_231530.jpg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/IMG_20250111_231530.jpg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
                                 <figure class="timeline__slide">
-                                    <img class="timeline__img" src="assets/image/giadinh/4645657b-0aa3-439e-b932-7083a210def0.jpg" alt="Gia đình" loading="lazy">
+                                    <img class="timeline__img" src="assets/image/giadinh/4645657b-0aa3-439e-b932-7083a210def0.jpg" alt="Gia đình" loading="lazy" decoding="async">
                                 </figure>
-                                
+
                             </div>
                         </div>
                         <div class="timeline__gallery-controls">
-                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button">
-                                <i class="fa-solid fa-arrow-left"></i>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--prev" type="button" aria-label="Ảnh trước trong kỷ niệm gia đình">
+                                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                             </button>
-                            <span class="timeline__gallery-count">1 / 6</span>
-                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button">
-                                <i class="fa-solid fa-arrow-right"></i>
+                            <span class="timeline__gallery-count" aria-live="polite">1 / 8</span>
+                            <button class="timeline__gallery-nav timeline__gallery-nav--next" type="button" aria-label="Ảnh tiếp theo trong kỷ niệm gia đình">
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -345,11 +345,11 @@
         <!-- Slider Controls -->
         <div class="timeline__controls">
             <button class="timeline__prev" type="button" aria-label="Previous">
-                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
             </button>
             <div class="timeline__dots"></div>
             <button class="timeline__next" type="button" aria-label="Next">
-                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
             </button>
         </div>
     </div>
@@ -366,7 +366,7 @@
         <div class="music__list" aria-label="Bảng xếp hạng bài hát yêu thích">
                     <a href="https://open.spotify.com/track/6Zoi4ue74UdUeYmHXItXnf?si=dff56d54267b4f0f" target="_blank" rel="noopener noreferrer" class="music__track">
                         <span class="music__track-rank" aria-hidden="true">01</span>
-                        <span class="music__track-cover" style="background-image: url('assets/vungantoan.png');" role="img" aria-label="Bìa bài hát Vùng An Toàn"></span>
+                        <span class="music__track-cover" style="background-image: url('assets/image/nhac/vungantoan.png');" role="img" aria-label="Bìa bài hát Vùng An Toàn"></span>
                         <span class="music__track-info">
                             <span class="music__track-title">Vùng An Toàn</span>
                             <span class="music__track-artist">Bray ft. V#</span>
@@ -376,7 +376,7 @@
                   
                     <a href="https://open.spotify.com/track/1pJb4HdgfTEv6yCccao1Qp?si=bcd017c78e664fee" target="_blank" rel="noopener noreferrer" class="music__track">
                         <span class="music__track-rank" aria-hidden="true">02</span>
-                        <span class="music__track-cover" style="background-image: url('assets/neulucdo.jpg');" role="img" aria-label="Bìa bài hát nếu lúc đó"></span>
+                        <span class="music__track-cover" style="background-image: url('assets/image/nhac/neulucdo.jpg');" role="img" aria-label="Bìa bài hát nếu lúc đó"></span>
                         <span class="music__track-info">
                             <span class="music__track-title">Nếu lúc đó</span>
                             <span class="music__track-artist">tlinh ft. 2pillz</span>
@@ -386,13 +386,14 @@
                    
                      <a href="https://open.spotify.com/track/6ELX356o21U28T73ZxruUj?si=9706e1f4f1d744e6" target="_blank" rel="noopener noreferrer" class="music__track">
                         <span class="music__track-rank" aria-hidden="true">03</span>
-                        <span class="music__track-cover" style="background-image: url('assets/TimEm.png') ; " role="img" aria-label="Bìa bài hát Thằng Điên"></span>
+                        <span class="music__track-cover" style="background-image: url('assets/image/nhac/TimEm.png') ; " role="img" aria-label="Bìa bài hát Thằng Điên"></span>
                         <span class="music__track-info">
                             <span class="music__track-title">Tìm Em</span>
                             <span class="music__track-artist">Hngle ft. Bảo Anh</span>
                         </span>
                         <span class="music__track-action" aria-hidden="true"><i class="fa-brands fa-spotify"></i></span>
                     </a>
+                    
                 </div>
             </div>
         </section>
@@ -417,7 +418,7 @@
                 <!-- Điện thoại - KHÔNG CÓ HR -->
                 <div class="contact__item">
                     <div class="contact__icon">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                     </div>
                     <div class="contact__details">
                         <span class="contact__label">ĐIỆN THOẠI</span>
@@ -428,7 +429,7 @@
                 <!-- Địa chỉ - KHÔNG CÓ HR -->
                 <div class="contact__item">
                     <div class="contact__icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                     </div>
                     <div class="contact__details">
                         <span class="contact__label">ĐỊA CHỈ</span>
@@ -439,7 +440,7 @@
                 <!-- Email - KHÔNG CÓ HR -->
                 <div class="contact__item">
                     <div class="contact__icon">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                     </div>
                     <div class="contact__details">
                         <span class="contact__label">EMAIL</span>
@@ -451,20 +452,22 @@
                 <div class="contact__social">
                     <span class="contact__social-label">Nhân cách khác của vhoang</span>
                     <div class="contact__social-icons">
-                        <a href="https://www.facebook.com/vhoangg204/" target="_blank" class="contact__social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/vhoang.204/" target="_blank" class="contact__social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@vhoang_204" target="_blank" class="contact__social-link"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.threads.net/@vhoang.204" target="_blank" class="contact__social-link"><i class="fa-brands fa-threads"></i></a>
-                        <a href="https://locket.cam/vhoang.204" target="_blank" class="contact__social-link"><i class="fa-regular fa-heart"></i></a>
+                        <a href="https://www.facebook.com/vhoangg204/" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Facebook của Hoàng"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/vhoang.204/" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Instagram của Hoàng"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.tiktok.com/@vhoang_204" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="TikTok của Hoàng"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="https://www.threads.net/@vhoang.204" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Threads của Hoàng"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+                        <a href="https://locket.cam/vhoang.204" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Locket của Hoàng"><i class="fa-regular fa-heart" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
 
             <!-- PHẦN FORM BÊN PHẢI -->
             <form id="contactForm" class="contact__form" action="https://formspree.io/f/xwvzbddb" method="POST">
-                <input type="text" class="contact__input" name="name" placeholder="Tên của cậu là gì ạ !" required>
+                <label class="sr-only" for="contactName">Tên của cậu</label>
+                <input id="contactName" type="text" class="contact__input" name="name" placeholder="Tên của cậu là gì ạ !" autocomplete="name" required>
                 <!-- <input type="email" class="contact__input" name="email" placeholder="Email của cậu (nếu muốn tớ reply)"> -->
-                <textarea class="contact__textarea" name="message" rows="4" placeholder="Điều cậu muốn nói với tớ... tớ nghe ạ!" required></textarea>
+                <label class="sr-only" for="contactMessage">Tin nhắn gửi Hoàng</label>
+                <textarea id="contactMessage" class="contact__textarea" name="message" rows="4" placeholder="Điều cậu muốn nói với tớ... tớ nghe ạ!" required></textarea>
                 <button type="submit" id="sendBtn" class="contact__submit">
                     <span id="btnText">Gửi đi</span>
                 </button>
