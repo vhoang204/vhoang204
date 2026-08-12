@@ -51,23 +51,28 @@
 
 /* Cột bên trái - Chữ (mở rộng) */
 .lifestyle__copy {
+     display: flex;
+    flex-direction: column;
+    gap: 12px;
     flex: 1.2;  /* Tăng tỷ lệ cho phần chữ */
 }
 
 .lifestyle__content {
     font-size: 1.05rem;  /* Tăng cỡ chữ */
-    line-height: 1.8;
+    line-height: 1.6;
     color: var(--text-muted);
     margin-bottom: 28px;
+    margin:  0 ;
     font-style: italic;
 }
 
 /* Tags */
 .lifestyle__tags {
-    display: flex;
+display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 8px;
+    gap: 8px;
+    margin-top: 4px;
 }
 
 .lifestyle__tag {
@@ -87,6 +92,7 @@
 .lifestyle__slider {
     flex: 1;
     width: 100%;
+     margin-top: 14px;
 }
 
 .lifestyle__slider-viewport {
@@ -95,6 +101,7 @@
     border-radius: 28px;
     background: rgba(0, 0, 0, 0.04);
     line-height: 0;
+    margin: 0;
 }
 
 .lifestyle__slider-track {
@@ -121,7 +128,8 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin-top: 20px;
+   
+    margin-top: 10px;
 }
 
 .lifestyle__slider-nav {
